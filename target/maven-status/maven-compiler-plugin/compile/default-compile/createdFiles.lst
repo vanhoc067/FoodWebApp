@@ -1,0 +1,10 @@
+com\dvh\configs\WebAppContextConfig.class
+com\dvh\repository\CategoryRepository.class
+com\dvh\repository\impl\CategoryRepositoryImpl.class
+com\dvh\configs\HibernateConfig.class
+com\dvh\configs\DispatcherServletInit.class
+META-INF\spring.components
+com\dvh\service\impl\CategoryServiceImpl.class
+com\dvh\service\CategoryService.class
+com\dvh\controllers\IndexController.class
+com\dvh\configs\TilesConfig.class

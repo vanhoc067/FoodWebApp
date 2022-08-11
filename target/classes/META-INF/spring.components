@@ -1,0 +1,6 @@
+com.dvh.configs.HibernateConfig=org.springframework.stereotype.Component
+com.dvh.configs.TilesConfig=org.springframework.stereotype.Component
+com.dvh.configs.WebAppContextConfig=org.springframework.stereotype.Component
+com.dvh.controllers.IndexController=org.springframework.stereotype.Component
+com.dvh.repository.impl.CategoryRepositoryImpl=org.springframework.stereotype.Component
+com.dvh.service.impl.CategoryServiceImpl=org.springframework.stereotype.Component
