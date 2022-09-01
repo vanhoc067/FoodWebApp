@@ -1,0 +1,166 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : Aug 29, 2022, 1:20:31 PM
+    Author     : Administrator
+*/
+
+#messages{
+    padding-bottom: 30%;
+}
+
+#chat  li {
+    list-style-type: none;
+    margin-bottom: 10px;
+    background-color: #a79cb3;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+    width: 70%;
+}
+
+li span {
+    font-style: italic;
+    font-weight: bolder;
+    color: #b5b0b9;
+}
+
+#chat {
+    width: 80%;
+    margin: auto;
+}
+
+#message-form {
+    text-align: center;
+    /*    position: fixed;*/
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background-color: #b7b5b9;
+}
+
+input {
+    width: 70%;
+    height: 30px;
+}
+
+button {
+    width: 25%;
+    height: 38px;
+}
+
+.sent {
+    text-align: right;
+    background-color: #0084ff !important;
+    margin-left: 30%;
+}
+
+.sent span {
+    margin-left: 5px;
+    color: #6929ca;
+}
+
+
+
+
+.chatbox {
+    border-radius: 10px;
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    right: 100px;
+    width: 300px;
+    height: 400px;
+    max-height: 400px;
+    flex-direction: column;
+    overflow: hidden;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.chat-window {
+    flex: auto;
+    max-height: calc(94% - 60px);
+    background: #ffffff;
+    overflow: auto;
+}
+.chat-input {
+    flex: 0 0 auto;
+    height: 60px;
+    background-color: #ffffff !important;
+    border: none;
+    box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+.chat-input input {
+    margin-top: 7px;
+    margin-right: -20px;
+    border-radius: 30px;
+    height: 40px;
+    line-height: 60px;
+    outline: 0 none;
+    border: none;
+    width: calc(95% - 60px);
+    color: white;
+    text-indent: 10px;
+    font-size: 12pt;
+    padding: 0;
+    background-color: #6666!important;
+}
+.chat-input button {
+    float: right;
+    outline: 0 none;
+    border: none;
+/*    background: rgba(255,255,255,.25);*/
+    height: 40px;
+    width: 40px;
+/*    border-radius: 50%;*/
+    padding: 2px 0 0 0;
+    margin: 12px;
+    background-color: #ffffff!important;
+/*    transition: all 0.15s ease-in-out;*/
+}
+.chat-input input[good] + button {
+    box-shadow: 0 0 2px rgba(0,0,0,.12),0 2px 4px rgba(0,0,0,.24);
+    background: #2671ff;
+}
+.chat-input input[good] + button:hover {
+    box-shadow: 0 8px 17px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+}
+.chat-input input[good] + button path {
+    fill: white;
+}
+
+.nut-mo-chatbox {
+    position: absolute;
+    right: 40px;
+    background: #ffffff;
+    border: none;
+    cursor: pointer;
+    opacity: 0.8;
+    width: 60px;
+    height: 150px;
+}
+
+.nut-mo-chatbox i{
+    
+    font-size: 50px;
+    color: #0079ff;
+}
+
+.nut-dong-chatbox {
+    width: 100%;
+    height: 30px;
+    background: #0079ff;
+    border: none;
+    z-index: 1000;
+    text-align: right;
+    box-shadow: 0 0 8px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+}
+
+.bt{
+    background: #0079ff;
+    text-align: right;
+    border: none;
+    height: 30px;
+}
+

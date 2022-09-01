@@ -4,10 +4,13 @@
  */
 package com.dvh.service;
 
+import com.dvh.pojo.Category;
+import java.util.List;
+
 /**
  *
  * @author Administrator
  */
 public interface CategoryService {
-    
+    List<Category> getCategories();
 }

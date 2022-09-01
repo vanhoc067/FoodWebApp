@@ -17,5 +17,70 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/index.jsp" />
     </definition>
+    <definition name="food" extends="baseLayout">
+        <put-attribute name="title" value="Quan ly thuc an" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/food.jsp" />
+    </definition>
+    <definition name="food-detail" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiet mon an" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/food-detail.jsp" />
+    </definition>
+    <definition name="stats" extends="baseLayout">
+        <put-attribute name="title" value="Thong ke bao cao thuc an va doan thu" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/stats.jsp" />
+    </definition>
+    <definition name="month-stats" extends="baseLayout">
+        <put-attribute name="title" value="Thong ke doanh thu theo thang" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/month-stats.jsp" />
+    </definition>
+    <definition name="cart" extends="baseLayout">
+        <put-attribute name="title" value="Gio hang" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/cart.jsp" />
+    </definition>
+    <definition name="store-detail" extends="baseLayout">
+        <put-attribute name="title" value="Thong tin cua hang" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/store-detail.jsp" />
+    </definition>
+    <definition name="success" extends="baseLayout">
+        <put-attribute name="title" value="Thanh cong" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/success.jsp" />
+    </definition>
+    <definition name="cancel" extends="baseLayout">
+        <put-attribute name="title" value="That bai" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/cancel.jsp" />
+    </definition>
+    <definition name="login" extends="baseLayout">
+        <put-attribute name="title" value="Dang nhap" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/login.jsp" />
+    </definition>
+    <definition name="register" extends="baseLayout">
+        <put-attribute name="title" value="Dang ky" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/register.jsp" />
+    </definition>
+    <definition name="user" extends="baseLayout">
+        <put-attribute name="title" value="Quan ly nguoi dung" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/user.jsp" />
+    </definition>
+    <definition name="bill" extends="baseLayout">
+        <put-attribute name="title" value="Hoa don" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/bill.jsp" />
+    </definition>
+    <definition name="bill_detail" extends="baseLayout">
+        <put-attribute name="title" value="Chi tiet hoa don" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/bill_detail.jsp" />
+    </definition>
 </tiles-definitions>
 

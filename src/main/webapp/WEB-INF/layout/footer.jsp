@@ -1,7 +1,7 @@
 <%-- 
     Document   : footer
     Created on : Aug 9, 2022, 4:03:22 PM
-    Author     : Administrator
+    Author     : Administrator             
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,15 +12,15 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-top-box">
-                        <h3>Business Time</h3>
+                        <h3>Thời gian hoạt động</h3>
                         <ul class="list-time">
-                            <li>Monday - Friday: 08.00am to 05.00pm</li> <li>Saturday: 10.00am to 08.00pm</li> <li>Sunday: <span>Closed</span></li>
+                            <li>Thứ 2 - thứ 6:  24/24</li> <li>Thứ 7 và chủ nhật: 5:00 - 20:00</li> 
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-top-box">
-                        <h3>Newsletter</h3>
+                        <h3>Nhận thông tin từ chúng tôi</h3>
                         <form class="newsletter-box">
                             <div class="form-group">
                                 <input class="" type="email" name="Email" placeholder="Email Address*" />
@@ -33,7 +33,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-top-box">
                         <h3>Social Media</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Theo giỏi tài khoản xã hội của chúng tôi</p>
                         <ul>
                             <li><a href="#"><i class="fab fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fab fa-twitter" aria-hidden="true"></i></a></li>
@@ -50,14 +50,14 @@
             <div class="row">
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-widget">
-                        <h4>About Freshshop</h4>
+                        <h4>Vài nét về Healthy Food</h4>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p> 
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. </p> 							
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-link">
-                        <h4>Information</h4>
+                        <h4>Thông tin</h4>
                         <ul>
                             <li><a href="#">About Us</a></li>
                             <li><a href="#">Customer Service</a></li>
@@ -70,7 +70,7 @@
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12">
                     <div class="footer-link-contact">
-                        <h4>Contact Us</h4>
+                        <h4>Liên hệ</h4>
                         <ul>
                             <li>
                                 <p><i class="fas fa-map-marker-alt"></i>Address: Michael I. Days 3756 <br>Preston Street Wichita,<br> KS 67213 </p>

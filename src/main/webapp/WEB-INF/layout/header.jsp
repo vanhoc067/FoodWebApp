@@ -4,6 +4,7 @@
     Author     : Administrator
 --%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %> 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!-- Start Main Top -->
 
@@ -19,23 +20,16 @@
                     </select>
                 </div>
                 <div class="right-phone-box">
-                    <p>Call US :- <a href="#"> +11 900 800 100</a></p>
+                    <p>Call US : <a href="#"> 0962243787</a></p>
                 </div>
                 <div class="our-link">
                     <ul>
                         <li><a href="#"><i class="fa fa-user s_color"></i> My Account</a></li>
-                        <li><a href="#"><i class="fas fa-location-arrow"></i> Our location</a></li>
                         <li><a href="#"><i class="fas fa-headset"></i> Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                <div class="login-box">
-                    <select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
-                        <option>Register Here</option>
-                        <option>Sign In</option>
-                    </select>
-                </div>
                 <div class="text-slid-box">
                     <div id="offer-box" class="carouselTicker">
                         <ul class="offer-box">
@@ -88,21 +82,97 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="navbar-menu">
                 <ul class="nav navbar-nav ml-auto" data-in="fadeInDown" data-out="fadeOutUp">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
-                    <li class="dropdown">
-                        <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">SHOP</a>
-                        <ul class="dropdown-menu">
-                            <li><a href="shop.html">Sidebar Shop</a></li>
-                            <li><a href="shop-detail.html">Shop Detail</a></li>
-                            <li><a href="cart.html">Cart</a></li>
-                            <li><a href="checkout.html">Checkout</a></li>
-                            <li><a href="my-account.html">My Account</a></li>
-                            <li><a href="wishlist.html">Wishlist</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact-us.html">Contact Us</a></li>
+                    <li class="nav-item active"><a class="nav-link" href="<c:url value="/" />">Trang chu</a></li>
+                    <c:if  test="${pageContext.request.userPrincipal.name == null}">
+                        <li class="dropdown">
+                            <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Khu vực</a>
+                            <ul class="dropdown-menu">
+                                <li><a href="shop.html">tp.HCM</a></li>
+                                <li><a href="shop-detail.html">Binh Dương</a></li>
+                                <li><a href="cart.html">Đòng Nai</a></li>
+                                <li><a href="checkout.html">Lâm Đồng</a></li>
+                                <li><a href="my-account.html">Tây Ninh</a></li>
+                                <li><a href="wishlist.html">Đà Nẵng</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item"><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/login" />">Đăng nhập</a></li>
+                        <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/register" />">Đăng kí</a></li>
+                    </c:if>
+                    <c:if  test="${pageContext.request.userPrincipal.name != null}">
+                        <sec:authorize access="hasRole('ROLE_ADMIN')">
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/admin/user" />">Quản lý người dùng</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/stats" />">Thống kê</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
+                                    <c:if test="${currentUser.image != null}">
+                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                    </c:if>
+                                    <c:if test="${currentUser.image == null}">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </c:if>
+                                    ${pageContext.request.userPrincipal.name}
+                                </a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/logout" />">Đăng xuất</a></li>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_STORE')">
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/food" />">Quản lý món ăn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/stats" />">Thống kê</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
+                                    <c:if test="${currentUser.image != null}">
+                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                    </c:if>
+                                    <c:if test="${currentUser.image == null}">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </c:if>
+                                    ${pageContext.request.userPrincipal.name}
+                                </a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/logout" />">Đăng xuất</a></li>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('ROLE_USER')">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Khu vực</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="shop.html">tp.HCM</a></li>
+                                    <li><a href="shop-detail.html">Binh Dương</a></li>
+                                    <li><a href="cart.html">Đòng Nai</a></li>
+                                    <li><a href="checkout.html">Lâm Đồng</a></li>
+                                    <li><a href="my-account.html">Tây Ninh</a></li>
+                                    <li><a href="wishlist.html">Đà Nẵng</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gallery.html">Cửa hàng gần bạn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/bill" />">Hóa đơn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
+                                    <c:if test="${currentUser.image != null}">
+                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                    </c:if>
+                                    <c:if test="${currentUser.image == null}">
+                                        <i class="fa fa-user" aria-hidden="true"></i>
+                                    </c:if>
+                                    ${pageContext.request.userPrincipal.name}
+                                </a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/logout" />">Đăng xuất</a></li>
+                        </sec:authorize>
+                        <sec:authorize access="hasRole('null')">
+                            <li class="dropdown">
+                                <a href="#" class="nav-link dropdown-toggle arrow" data-toggle="dropdown">Khu vực</a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="shop.html">tp.HCM</a></li>
+                                    <li><a href="shop-detail.html">Binh Dương</a></li>
+                                    <li><a href="cart.html">Đòng Nai</a></li>
+                                    <li><a href="checkout.html">Lâm Đồng</a></li>
+                                    <li><a href="my-account.html">Tây Ninh</a></li>
+                                    <li><a href="wishlist.html">Đà Nẵng</a></li>
+                                </ul>
+                            </li>
+                            <li class="nav-item"><a class="nav-link" href="about.html">Về chúng tôi</a></li>
+                            <li class="nav-item"><a class="nav-link" href="gallery.html">Cửa hàng gần bạn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/login" />">Đăng nhập</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/register" />">Đăng kí</a></li>
+                        </sec:authorize>
+                    </c:if>
+                        
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -110,12 +180,13 @@
             <!-- Start Atribute Navigation -->
             <div class="attr-nav">
                 <ul>
-                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>
-                    <li class="side-menu">
-                        <a href="#">
-                            <i class="fa fa-shopping-bag"></i>
-                            <span class="badge">3</span>
-                            <p>My Cart</p>
+                    <!--                    <li class="search"><a href="#"><i class="fa fa-search"></i></a></li>-->
+                    <li>  
+
+                        <a href="<c:url value="/cart" />"> 
+                            <h3>My cart</h3>
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <div class="badge bg-primary" id="cartCounter">${cartCounter}</div>
                         </a>
                     </li>
                 </ul>
@@ -123,32 +194,32 @@
             <!-- End Atribute Navigation -->
         </div>
         <!-- Start Side Menu -->
-        <div class="side">
-            <a href="#" class="close-side"><i class="fa fa-times"></i></a>
-            <li class="cart-box">
-                <ul class="cart-list">
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Delica omtantur </a></h6>
-                        <p>1x - <span class="price">$80.00</span></p>
+        <!--        <div class="side">
+                    <a href="#" class="close-side"><i class="fa fa-times"></i></a>
+                    <li class="cart-box">
+                        <ul class="cart-list">
+                            <li>
+                                <a href="#" class="photo"><img src="images/img-pro-01.jpg" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">Delica omtantur </a></h6>
+                                <p>1x - <span class="price">$80.00</span></p>
+                            </li>
+                            <li>
+                                <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">Omnes ocurreret</a></h6>
+                                <p>1x - <span class="price">$60.00</span></p>
+                            </li>
+                            <li>
+                                <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
+                                <h6><a href="#">Agam facilisis</a></h6>
+                                <p>1x - <span class="price">$40.00</span></p>
+                            </li>
+                            <li class="total">
+                                <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
+                                <span class="float-right"><strong>Total</strong>: $180.00</span>
+                            </li>
+                        </ul>
                     </li>
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-02.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Omnes ocurreret</a></h6>
-                        <p>1x - <span class="price">$60.00</span></p>
-                    </li>
-                    <li>
-                        <a href="#" class="photo"><img src="images/img-pro-03.jpg" class="cart-thumb" alt="" /></a>
-                        <h6><a href="#">Agam facilisis</a></h6>
-                        <p>1x - <span class="price">$40.00</span></p>
-                    </li>
-                    <li class="total">
-                        <a href="#" class="btn btn-default hvr-hover btn-cart">VIEW CART</a>
-                        <span class="float-right"><strong>Total</strong>: $180.00</span>
-                    </li>
-                </ul>
-            </li>
-        </div>
+                </div>-->
         <!-- End Side Menu -->
     </nav>
     <!-- End Navigation -->

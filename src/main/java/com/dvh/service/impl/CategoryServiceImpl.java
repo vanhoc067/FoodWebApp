@@ -4,7 +4,11 @@
  */
 package com.dvh.service.impl;
 
+import com.dvh.pojo.Category;
+import com.dvh.repository.CategoryRepository;
 import com.dvh.service.CategoryService;
+import java.util.List;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -13,5 +17,11 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class CategoryServiceImpl implements CategoryService{
+    @Autowired
+    private CategoryRepository categoryRepository;
     
+    @Override
+    public List<Category> getCategories() {
+        return this.categoryRepository.getCategories();
+    }
 }
