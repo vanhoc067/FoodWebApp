@@ -18,6 +18,7 @@ com\dvh\service\FoodService.class
 com\dvh\service\impl\UserServiceImpl.class
 com\dvh\repository\StoreRepository.class
 com\dvh\controllers\BillController.class
+com\dvh\controllers\ApiStoreCommentController.class
 com\dvh\controllers\IndexController.class
 com\dvh\service\impl\StoreServiceImpl.class
 com\dvh\repository\OrderRepository.class
@@ -47,6 +48,7 @@ com\dvh\service\UserService.class
 com\dvh\repository\CategoryRepository.class
 com\dvh\controllers\ExecutePaymentController.class
 com\dvh\pojo\Comment_.class
+com\dvh\pojo\StoreComment_.class
 com\dvh\controllers\ApiFoodController.class
 com\dvh\repository\UserRepository.class
 com\dvh\service\impl\FoodServiceImpl.class
@@ -63,4 +65,5 @@ com\dvh\service\impl\BillServiceImpl.class
 com\dvh\service\impl\CategoryServiceImpl.class
 com\dvh\pojo\Food.class
 com\dvh\controllers\ReviewPaymentController.class
+com\dvh\pojo\StoreComment.class
 com\dvh\pojo\Category.class

@@ -15,6 +15,7 @@
     <class>com.dvh.pojo.Store_1</class>
     <class>com.dvh.pojo.Food_1</class>
     <class>com.dvh.pojo.FoodOrder</class>
+    <class>com.dvh.pojo.StoreComment</class>
     <exclude-unlisted-classes>false</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/fooddb?zeroDateTimeBehavior=CONVERT_TO_NULL"/>

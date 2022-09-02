@@ -6,6 +6,7 @@ package com.dvh.service.impl;
 
 import com.dvh.pojo.Comment;
 import com.dvh.pojo.Store;
+import com.dvh.pojo.StoreComment;
 import com.dvh.repository.StoreRepository;
 import com.dvh.service.StoreService;
 import java.util.List;
@@ -29,5 +30,15 @@ public class StoreServiceImpl implements StoreService {
     @Override
     public Store getStoreById(int id) {
         return this.storeRepository.getStoreById(id);
+    }
+
+    @Override
+    public List<StoreComment> getStoreComments(int storeId) {
+        return this.storeRepository.getStoreComments(storeId);
+    }
+
+    @Override
+    public StoreComment addStoreComment(String content, int storeId) {
+        return this.storeRepository.addStoreComment(content, storeId);
     }
 }

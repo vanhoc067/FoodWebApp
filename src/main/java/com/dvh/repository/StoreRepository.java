@@ -6,6 +6,7 @@ package com.dvh.repository;
 
 import com.dvh.pojo.Comment;
 import com.dvh.pojo.Store;
+import com.dvh.pojo.StoreComment;
 import java.util.List;
 
 /**
@@ -15,4 +16,6 @@ import java.util.List;
 public interface StoreRepository {
     List<Store> getStores();
     Store getStoreById(int id);
+    List<StoreComment> getStoreComments(int storeId);
+    StoreComment addStoreComment(String content, int storeId);
 }

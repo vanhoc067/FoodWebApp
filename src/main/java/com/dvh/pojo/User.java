@@ -9,6 +9,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -29,7 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
- * @author thinh
+ * @author Administrator
  */
 @Entity
 @Table(name = "user")
@@ -49,7 +50,7 @@ import org.springframework.web.multipart.MultipartFile;
     @NamedQuery(name = "User.findByActive", query = "SELECT u FROM User u WHERE u.active = :active"),
     @NamedQuery(name = "User.findByImage", query = "SELECT u FROM User u WHERE u.image = :image")})
 public class User implements Serializable {
-
+    
     public static final String ADMIN = "ROLE_ADMIN";	
     public static final String USER = "ROLE_USER";
     public static final String STORE = "ROLE_STORE";
@@ -102,14 +103,16 @@ public class User implements Serializable {
     @Size(max = 255)
     @Column(name = "image")
     private String image;
-    @OneToMany(mappedBy = "userId")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     @JsonIgnore
-    private Set<FoodOrder> foodOrderSet;
+    private Set<Store> storeSet;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
+    @JsonIgnore
+    private Set<StoreComment> storeCommentSet;
     @Transient
     private String confirmPassword;
     @Transient
     private MultipartFile file;
-
 
     public User() {
     }
@@ -223,12 +226,21 @@ public class User implements Serializable {
     }
 
     @XmlTransient
-    public Set<FoodOrder> getFoodOrderSet() {
-        return foodOrderSet;
+    public Set<Store> getStoreSet() {
+        return storeSet;
     }
 
-    public void setFoodOrderSet(Set<FoodOrder> foodOrderSet) {
-        this.foodOrderSet = foodOrderSet;
+    public void setStoreSet(Set<Store> storeSet) {
+        this.storeSet = storeSet;
+    }
+
+    @XmlTransient
+    public Set<StoreComment> getStoreCommentSet() {
+        return storeCommentSet;
+    }
+
+    public void setStoreCommentSet(Set<StoreComment> storeCommentSet) {
+        this.storeCommentSet = storeCommentSet;
     }
 
     @Override

@@ -84,6 +84,11 @@ public class FoodRespositoryImpl implements FoodRepository {
                 Predicate p = b.equal(root.get("categoryId"), Integer.parseInt(cateId));
                 predicates.add(p);
             }
+            String storeId = params.get("storeId");
+            if (storeId != null) {
+                Predicate p = b.equal(root.get("storeId"), Integer.parseInt(storeId));
+                predicates.add(p);
+            }
 
             q.where(predicates.toArray(new Predicate[]{}));
 

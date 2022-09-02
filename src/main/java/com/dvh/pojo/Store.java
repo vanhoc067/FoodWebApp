@@ -26,7 +26,7 @@ import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
- * @author thinh
+ * @author Administrator
  */
 @Entity
 @Table(name = "store")
@@ -64,7 +64,7 @@ public class Store implements Serializable {
     @ManyToOne(optional = false)
     private User userId;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "storeId")
-    private Set<Food> foodSet;
+    private Set<StoreComment> storeCommentSet;
 
     public Store() {
     }
@@ -127,12 +127,12 @@ public class Store implements Serializable {
     }
 
     @XmlTransient
-    public Set<Food> getFoodSet() {
-        return foodSet;
+    public Set<StoreComment> getStoreCommentSet() {
+        return storeCommentSet;
     }
 
-    public void setFoodSet(Set<Food> foodSet) {
-        this.foodSet = foodSet;
+    public void setStoreCommentSet(Set<StoreComment> storeCommentSet) {
+        this.storeCommentSet = storeCommentSet;
     }
 
     @Override

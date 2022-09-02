@@ -12,8 +12,10 @@ D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\pojo\Comment.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\configs\SecurityWebApplicationInitializer.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\configs\HibernateConfig.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\configs\DispatcherServletInit.java
+D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\controllers\ApiStoreCommentController.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\controllers\ExecutePaymentController.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\repository\impl\StoreRepositoryImpl.java
+D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\pojo\StoreComment.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\controllers\ApiCommentController.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\pojo\Bill.java
 D:\SpringMVC\BTL\FoodWebApp\src\main\java\com\dvh\repository\impl\CategoryRepositoryImpl.java

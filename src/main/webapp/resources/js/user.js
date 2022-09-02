@@ -46,6 +46,7 @@ function loadAdminUser(endpoint){
                 <td>
                     <div class="spinner-border text-primary" style="display: none" id="load${data[i].id}"></div>
                     <button class="btn btn-danger" onclick="delUser('${endpoint + "/" + data[i].id}', ${data[i].id})" >xóa</button>
+                    <button class="btn btn-primary" >sửa</button>
                 </td>
             </tr>
             `
