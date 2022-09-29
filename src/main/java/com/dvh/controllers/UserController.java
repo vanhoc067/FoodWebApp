@@ -7,11 +7,14 @@ package com.dvh.controllers;
 import com.dvh.pojo.User;
 import com.dvh.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
  *
@@ -21,6 +24,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 public class UserController {
     @Autowired
     private UserService userDetailsService;
+   
     
     @GetMapping("/login")
     public String login(){
@@ -49,4 +53,6 @@ public class UserController {
         model.addAttribute("errMsg", errMsg);
         return "register";
     }
+    
+    
 }

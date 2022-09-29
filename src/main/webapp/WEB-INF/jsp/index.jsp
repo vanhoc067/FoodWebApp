@@ -17,7 +17,8 @@
     <body>
         <div class="container">
             <!-- Start Slider -->
-
+            <br><br>
+            <h1 class="text-center text-info">Tìm kiếm món ăn</h1>
             <c:url value="/" var="foodname" />
             <form action="${foodname}">
                 <div class="mb-3 mt-3">
@@ -56,6 +57,7 @@
             <div class="d-grid gap-2">
                 <button type="submit" class="btn btn-primary btn-lg">Tìm</button>
             </div>
+        </div>
                 <br><br>
 
             <div id="slides-shop" class="cover-slides">
@@ -65,9 +67,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                                    <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                                    <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                                    <h1 class="m-b-20"><strong>Welcome To <br> Healthy Food</strong></h1>
+                                    <p class="m-b-40">Healthy Food Luôn là sự lựa chon tôt nhất của bạn</p>
+                                    <p class="m-b-40">Đặt món ngay để nhận ưu đãi tốt nhất</p>
+                                    <p><a class="btn hvr-hover" href="#">Đặt món</a></p>
                                 </div>
                             </div>
                         </div>
@@ -77,9 +80,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                                    <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                                    <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                                    <h1 class="m-b-20"><strong>Welcome To <br> Healthy Food</strong></h1>
+                                    <p class="m-b-40">Healthy Food Luôn là sự lựa chon tôt nhất của bạn</p>
+                                    <p class="m-b-40">Đặt món ngay để nhận ưu đãi tốt nhất</p>
+                                    <p><a class="btn hvr-hover" href="#">Đặt món</a></p>
                                 </div>
                             </div>
                         </div>
@@ -89,9 +93,10 @@
                         <div class="container">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1 class="m-b-20"><strong>Welcome To <br> Freshshop</strong></h1>
-                                    <p class="m-b-40">See how your users experience your website in realtime or view <br> trends to see any changes in performance over time.</p>
-                                    <p><a class="btn hvr-hover" href="#">Shop New</a></p>
+                                    <h1 class="m-b-20"><strong>Welcome To <br> Healthy Food</strong></h1>
+                                    <p class="m-b-40">Healthy Food Luôn là sự lựa chon tôt nhất của bạn</p>
+                                    <p class="m-b-40">Đặt món ngay để nhận ưu đãi tốt nhất</p>
+                                    <p><a class="btn hvr-hover" href="#">Đặt món</a></p>
                                 </div>
                             </div>
                         </div>
@@ -103,6 +108,64 @@
                 </div>
             </div>
             <!-- End Slider -->
+            <br><br>
+            <div class="container">
+                
+                <h1 class="text-center text-danger">NHẬN MÃ GIẢM GIÁ NGAY</h1>
+            <div style="margin-top: -50px" class="instagram-box">
+                    <div class="main-instagram owl-carousel owl-theme">
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma2.jpg" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma3.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma4.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma5.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma6.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma7.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma9.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma1.jpg" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma10.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="ins-inner-box">
+                                <a href="#"><img src="<c:url value="/images/ma5.png" />" class="img-fluid" alt="Image" /></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
             <!-- Start Categories  -->
             <div class="categories-shop">
@@ -110,7 +173,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="title-all">
-                                <h1>DANH MUC MON AN</h1>
+                                <h1>DANH MỤC MÓN ĂN</h1>
                             </div>
                         </div>
                         <c:forEach items="${categories}" var="c">
@@ -165,7 +228,7 @@
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="title-all text-center">
-                                <h1>DANH SACH CAC MON AN</h1>
+                                <h1>DANH SÁNH CÁC MÓN ĂN</h1>
                                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed sit amet lacus enim.</p>
                             </div>
                         </div>
@@ -299,8 +362,8 @@
                             <div class="row">
                                 <div class="col-lg-12">
                                     <div class="title-all text-center">
-                                        <h1>HE THONG CUA HANG</h1>
-                                        <p>Chung toi hop tac voi nhieu cua hang tren toan quoc</p>
+                                        <h1>HỆ THỐNG CỬA HÀNG CỦA CHÚNG TÔI</h1>
+                                        <p>Chúng tôi hợp tác với nhiều cửa hàng trên toàn quốc</p>
                                     </div>
                                 </div>
                             </div>
@@ -369,90 +432,7 @@
 
                 </div>
                 <!-- Start Instagram Feed  -->
-                <div class="instagram-box">
-                    <div class="main-instagram owl-carousel owl-theme">
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-01.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-02.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-03.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-04.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-05.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-06.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-07.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-08.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-09.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="ins-inner-box">
-                                <img src="<c:url value="/images/instagram-img-05.jpg" />" class="img-fluid" alt="Image" />
-                                <div class="hov-in">
-                                    <a href="#"><i class="fab fa-instagram"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                
 
 
                 <button class="nut-mo-chatbox" onclick="moForm()"><i class="fab fa-facebook-messenger"></i></button>
@@ -477,7 +457,9 @@
                             <i class="fa fa-paper-plane" style="font-size:30px; color: #0084ff;"></i>
                         </button>
                     </form>
-                </section>                        
+                </section>  
+                <br><br>
+                <br><br>
 
                 <!-- End Instagram Feed  -->
 

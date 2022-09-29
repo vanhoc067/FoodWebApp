@@ -13,7 +13,8 @@ function loadStoreComments(endpoint) {
             h += `  
             <div class="d-flex text-muted pt-3">
                 <h1 class="pb-3 mb-0  lh-sm border-bottom">
-                    <strong class=" text-gray-dark">${d.user.username} </strong> da binh luan khoang <strong class=" text-gray-dark"> ${moment(d.createdDate).locale("vi").fromNow()}</strong> 
+                    <img style="width:30px" class="rounded-circle" src=${d.user.image} />
+                    <strong class=" text-gray-dark">${d.user.username} </strong> đã bình luận <strong class=" text-gray-dark"> ${moment(d.createdDate).locale("vi").fromNow()}</strong> 
                     <p>${d.content}</>
                 </h1>
             </div>

@@ -82,5 +82,20 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/bill_detail.jsp" />
     </definition>
+    <definition name="admin_stats" extends="baseLayout">
+        <put-attribute name="title" value="Thong ke admin" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/admin_stats.jsp" />
+    </definition>
+    <definition name="store_bill" extends="baseLayout">
+        <put-attribute name="title" value="don hang cua hang" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/store_bill.jsp" />
+    </definition>
+    <definition name="food_admin" extends="baseLayout">
+        <put-attribute name="title" value="quan li mon an" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/food_admin.jsp" />
+    </definition>
 </tiles-definitions>
 

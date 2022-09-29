@@ -21,10 +21,11 @@
     </head>
     <body>
         <tiles:insertAttribute name="header" />
-        <div class="container">
+       
             <tiles:insertAttribute name="content" />
-        </div>
+     
         <tiles:insertAttribute name="footer" />
+        
         <script src="<c:url value="/js/cart.js" />"></script>
         <script src="<c:url value="/js/food.js" />"></script>
         <script src="<c:url value="/js/stats.js" />"></script>

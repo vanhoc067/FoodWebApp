@@ -25,4 +25,5 @@ public interface FoodRepository {
     List<Object[]> revenueMonthStats(String kw, Date fromDate, Date toDate); 
     List<Comment> getComments(int foodId);
     Comment addComment(String content, int foodId);
+    List<Food> getFoodstore();
 }

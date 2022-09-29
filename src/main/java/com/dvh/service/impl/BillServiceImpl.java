@@ -4,11 +4,12 @@
  */
 package com.dvh.service.impl;
 
-import com.dvh.pojo.Bill;
+import com.dvh.pojo.FoodOrder;
 import com.dvh.pojo.Orderdetail;
 import com.dvh.repository.BillRepository;
 import com.dvh.service.BillService;
 import java.util.List;
+import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,8 +24,8 @@ public class BillServiceImpl implements BillService{
     private BillRepository billRepository;
     
     @Override
-    public List<Orderdetail> getBill() {
-        return this.billRepository.getBill();
+    public List<FoodOrder> getBill(Map<String, String> params) {
+        return this.billRepository.getBill(params);
     }
 
     @Override

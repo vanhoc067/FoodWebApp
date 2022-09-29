@@ -4,15 +4,16 @@
  */
 package com.dvh.service;
 
-import com.dvh.pojo.Bill;
+import com.dvh.pojo.FoodOrder;
 import com.dvh.pojo.Orderdetail;
 import java.util.List;
+import java.util.Map;
 
 /**
  *
  * @author Administrator
  */
 public interface BillService {
-    List<Orderdetail> getBill();
+    List<FoodOrder> getBill(Map<String, String> params);
     Orderdetail getBillById(int id);
 }

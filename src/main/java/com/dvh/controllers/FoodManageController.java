@@ -5,15 +5,25 @@
 package com.dvh.controllers;
 
 import com.dvh.pojo.Food;
+import com.dvh.pojo.User;
 import com.dvh.service.FoodService;
+import com.dvh.service.StoreBillService;
+import com.dvh.service.UserService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 import java.util.Map;
+import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.MailSender;
+import org.springframework.mail.SimpleMailMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,13 +39,52 @@ public class FoodManageController {
     @Autowired
     private FoodService foodService;
     
+    @Autowired
+    private UserService userService;
+    
+    @Autowired
+    MailSender mailSender;
+    
+    @Autowired
+    private StoreBillService storeBillService;
+    
+    @GetMapping("/store_bill")
+    public String listbill(Model model,@RequestParam Map<String, String> params, HttpSession session) {
+        Boolean check = false;
+        model.addAttribute("bill", this.storeBillService.getBill(params));
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
+        model.addAttribute("check", check);
+        
+        return "store_bill";
+    }
+    
     @GetMapping("/food")
-    public String list(Model model) {
+    public String list(Model model, HttpSession session) {
+        Boolean check = false;
+        
+        model.addAttribute("foodList", this.foodService.getFoodstore());
         model.addAttribute("food", new Food());
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
+        model.addAttribute("check", check);
+        
         return "food";
     }
     @PostMapping("/food")
-    public String add() {
+    public String add(Model model, @RequestParam Map<String, String> params, @ModelAttribute(value = "food") @Valid Food f, BindingResult r) {
+        if (r.hasErrors()){
+            return "food";
+        } 
+        
+        if (this.foodService.addFood(f) == true){
+            List<User> u = userService.getListUsers(params);
+            for(int i = 0; i<u.size(); i++){
+                String email = u.get(i).getEmail();
+                senEmail("healthyfood047@gmail.com", email, "Mon an moi!!", "Chung toi vua co 1 mon an moi, co the ban se thich.");
+            }
+            return "redirect:/";
+            }
+        
+        
         return "food";
     }
     @GetMapping("/stats")
@@ -90,6 +139,16 @@ public class FoodManageController {
         model.addAttribute("revenueMonthStats", this.foodService.revenueMonthStats(kw,fromDate,toDate)); 
         
         return "month-stats";
+    }
+    
+    public void senEmail(String from, String to, String subject, String content) {
+        SimpleMailMessage mailMessage = new SimpleMailMessage();
+        mailMessage.setFrom(from);
+        mailMessage.setTo(to);
+        mailMessage.setSubject(subject);
+        mailMessage.setText(content);
+
+        mailSender.send(mailMessage);
     }
     
 }

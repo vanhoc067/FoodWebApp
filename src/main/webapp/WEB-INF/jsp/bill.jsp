@@ -38,40 +38,44 @@
                                         <table class="table custom-table m-0 table-striped">
                                             <thead>
                                                 <tr>
-                                                    <th>Id don hang</th>
-                                                    <th>Ten mon </th>
-                                                    <th>Gia tien</th>
-                                                    <th>So luong</th>
-                                                    <th>Tong tien</th>
+                                                    <th>Mã đơn hàng</th>
+                                                    <th>Tên khách hàng</th>
+                                                    <th>Ngày tạo</th>
+                                                    <th>Thành tiền</th>
                                                     <th></th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <c:forEach items="${bill}" var="b">
-                                                    <tr style="padding:30px">
-                                                        <td>${b.id}</td>
-                                                        <td>${b.foodId.name}</td>
-                                                        <td>${b.unitPrice}</td>
-                                                        <td>${b.foodQuantity}</td>
-                                                        <td>${b.orderId.amount}</td>
-                                                        <td>
-                                                            <div class="d-grid">
-                                                                <a style="text-align: center" href="#" /><button class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
-                                                            </div>
-                                                            
-                                                        </td>
-                                                        <td>
-                                                            <div class="d-grid">
-                                                                <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button class="btn btn-danger btn-block">Thanh toán online</button></a>
-                                                            </div>
-                                                            
-                                                        </td>
-                                                        
-                                                    </tr>
-                                               
+                                                    <c:if test="${currentUser.id == b.userId.id}">
+                                                        <c:set var="check" value="true"/>
+                                                        <tr style="padding:30px">
+                                                            <td>${b.id}</td>
+                                                            <td>${b.userId.username}</td>
+                                                            <td>${b.createdDate}</td>
+
+                                                            <td>${b.amount}</td>
+                                                            <td>
+                                                                <div class="d-grid">
+                                                                    <a style="text-align: center" href="#" /><button class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
+                                                                </div>
+
+                                                            </td>
+                                                            <td>
+                                                                <div class="d-grid">
+                                                                    <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button class="btn btn-danger btn-block">Thanh toán online</button></a>
+                                                                </div>
+
+                                                            </td>
+
+                                                        </tr>
+                                                    </c:if>
                                                 </c:forEach>
                                             </tbody>
+                                            <c:if test="${check == false}">
+                                                <h3 class="text-danger">Không có đơn hàng nào!</h3>
+                                            </c:if>
                                         </table>
                                     </div>
                                 </div>

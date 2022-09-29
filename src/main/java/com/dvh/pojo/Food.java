@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.Set;
+import javax.mail.Multipart;
 import javax.persistence.Basic;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -23,10 +24,14 @@ import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.persistence.Transient;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  *
@@ -54,14 +59,13 @@ public class Food implements Serializable {
     @Column(name = "id")
     private Integer id;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 45)
+    @NotNull(message = "{food.name.err}")
+    @Size(min = 1, max = 255, message = "{food.name.err}")
     @Column(name = "name")
     private String name;
     @Column(name = "quantity")
     private Integer quantity;
     @Basic(optional = false)
-    @NotNull
     @Size(min = 1, max = 45)
     @Column(name = "status")
     private String status;
@@ -75,6 +79,8 @@ public class Food implements Serializable {
     @Column(name = "image")
     private String image;
     @Column(name = "price")
+    @Min(value = 10000, message = "{food.price.errMin}")
+    @Max(value = 500000, message = "{food.price.errMax}")
     private Long price;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "foodId")
     @JsonIgnore
@@ -90,6 +96,8 @@ public class Food implements Serializable {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "foodId")
     @JsonIgnore
     private Set<Orderdetail> orderdetailSet;
+    @Transient
+    private MultipartFile file;
 
     public Food() {
     }
@@ -225,6 +233,20 @@ public class Food implements Serializable {
     @Override
     public String toString() {
         return "com.dvh.pojo.Food[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the file
+     */
+    public MultipartFile getFile() {
+        return file;
+    }
+
+    /**
+     * @param file the file to set
+     */
+    public void setFile(MultipartFile file) {
+        this.file = file;
     }
     
 }

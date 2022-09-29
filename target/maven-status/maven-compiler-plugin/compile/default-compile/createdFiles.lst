@@ -4,6 +4,7 @@ com\dvh\controllers\StoreController.class
 META-INF\spring.components
 com\dvh\controllers\ApiUserController.class
 com\dvh\pojo\Food_.class
+com\dvh\configs\handlers\LoginSuccessHandler.class
 com\dvh\configs\SpringSecurityConfig.class
 com\dvh\pojo\FoodOrder.class
 com\dvh\service\BillService.class
@@ -16,6 +17,7 @@ com\dvh\configs\SecurityWebApplicationInitializer.class
 com\dvh\pojo\User.class
 com\dvh\service\FoodService.class
 com\dvh\service\impl\UserServiceImpl.class
+com\dvh\formatters\StoreFormatter.class
 com\dvh\repository\StoreRepository.class
 com\dvh\controllers\BillController.class
 com\dvh\controllers\ApiStoreCommentController.class
@@ -29,14 +31,12 @@ com\dvh\pojo\Cart.class
 com\dvh\controllers\UserController.class
 com\dvh\repository\impl\UserRepositoryImpl.class
 com\dvh\controllers\FoodManageController.class
-com\dvh\pojo\Bill.class
 com\dvh\controllers\ApiCartController.class
 com\dvh\configs\TilesConfig.class
 com\dvh\repository\impl\CategoryRepositoryImpl.class
 com\dvh\configs\HibernateConfig.class
 com\dvh\pojo\FoodOrder_.class
 com\dvh\service\impl\OrderServiceImpl.class
-com\dvh\pojo\Bill_.class
 com\dvh\controllers\AdminController.class
 com\dvh\pojo\User_.class
 com\dvh\service\CategoryService.class
@@ -65,5 +65,6 @@ com\dvh\service\impl\BillServiceImpl.class
 com\dvh\service\impl\CategoryServiceImpl.class
 com\dvh\pojo\Food.class
 com\dvh\controllers\ReviewPaymentController.class
+com\dvh\formatters\CategoryFormatter.class
 com\dvh\pojo\StoreComment.class
 com\dvh\pojo\Category.class

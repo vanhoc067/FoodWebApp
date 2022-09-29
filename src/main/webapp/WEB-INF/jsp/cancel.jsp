@@ -9,4 +9,4 @@
 <c:url value="/css/style.css" var="css" />
         <link href="${css}" rel="stylesheet" >
         
-<h1 class="text-center text-danger">Thanh toan that bai!!</h1>
+<h1 class="text-center text-danger">Thanh toán thất bại!!</h1>

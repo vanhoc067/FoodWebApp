@@ -135,7 +135,14 @@ public class FoodRespositoryImpl implements FoodRepository {
 
     @Override
     public boolean addFood(Food f) {
-        return false;
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            session.save(f);
+            return true;
+        } catch (Exception ex){
+            ex.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -270,5 +277,13 @@ public class FoodRespositoryImpl implements FoodRepository {
 
         Query query = session.createQuery(q);
         return query.getResultList();
+    }
+
+    @Override
+    public List<Food> getFoodstore() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        Query q = s.createQuery("From Food");
+        
+        return q.getResultList();
     }
 }

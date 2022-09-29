@@ -75,7 +75,7 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-menu" aria-controls="navbars-rs-food" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="index.html"><img src="<c:url value="/images/logo.JPG"/>" class="logo" alt=""/></a>
+                <a class="navbar-brand" href="#"><img src="<c:url value="/images/logo.JPG"/>" class="logo" alt=""/></a>
             </div>
             <!-- End Header Navigation -->
 
@@ -102,10 +102,11 @@
                     <c:if  test="${pageContext.request.userPrincipal.name != null}">
                         <sec:authorize access="hasRole('ROLE_ADMIN')">
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/admin/user" />">Quản lý người dùng</a></li>
-                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/stats" />">Thống kê</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/admin/food_admin" />">Quản lý món ăn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/admin/stats" />">Thống kê</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
                                     <c:if test="${currentUser.image != null}">
-                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                        <img style="width:30px;" src="${currentUser.image}" class="rounded-circle" /> 
                                     </c:if>
                                     <c:if test="${currentUser.image == null}">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -116,10 +117,11 @@
                         </sec:authorize>
                         <sec:authorize access="hasRole('ROLE_STORE')">
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/food" />">Quản lý món ăn</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/store_bill" />">Quản lý đơn hàng</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/stats" />">Thống kê</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
                                     <c:if test="${currentUser.image != null}">
-                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                        <img style="width:30px" src="${currentUser.image}" class="rounded-circle" /> 
                                     </c:if>
                                     <c:if test="${currentUser.image == null}">
                                         <i class="fa fa-user" aria-hidden="true"></i>
@@ -145,7 +147,7 @@
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/bill" />">Hóa đơn</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
                                     <c:if test="${currentUser.image != null}">
-                                        <image src="${currentUser.image}" class="img-fluid" /> 
+                                        <img style="width:30px" src="${currentUser.image}" class="rounded-circle" /> 
                                     </c:if>
                                     <c:if test="${currentUser.image == null}">
                                         <i class="fa fa-user" aria-hidden="true"></i>

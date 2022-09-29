@@ -4,10 +4,13 @@
  */
 package com.dvh.service.impl;
 
+import com.cloudinary.Cloudinary;
+import com.cloudinary.utils.ObjectUtils;
 import com.dvh.pojo.Comment;
 import com.dvh.pojo.Food;
 import com.dvh.repository.FoodRepository;
 import com.dvh.service.FoodService;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
@@ -22,6 +25,9 @@ import org.springframework.stereotype.Service;
 public class FoodServiceImpl implements FoodService {
     @Autowired
     private FoodRepository foodRepository;
+    
+    @Autowired
+    private Cloudinary cloudinary;
 
     @Override
     public List<Food> getFoods(Map<String, String> params, int page) {
@@ -40,7 +46,16 @@ public class FoodServiceImpl implements FoodService {
 
     @Override
     public boolean addFood(Food f) {
-        return this.foodRepository.addFood(f);
+         try {     
+            Map r = this.cloudinary.uploader().upload(f.getFile().getBytes(),
+                    ObjectUtils.asMap("resource_type", "auto"));
+            f.setImage((String) r.get("secure_url"));
+            
+            return this.foodRepository.addFood(f);
+        } catch (IOException ex) {
+            ex.printStackTrace();
+        }
+        return false;
     }
 
     @Override
@@ -71,5 +86,10 @@ public class FoodServiceImpl implements FoodService {
     @Override
     public List<Object[]> revenueMonthStats(String kw, Date fromDate, Date toDate) {
         return this.foodRepository.revenueMonthStats(kw, fromDate, toDate);
+    }
+
+    @Override
+    public List<Food> getFoodstore() {
+        return this.foodRepository.getFoodstore();
     }
 }

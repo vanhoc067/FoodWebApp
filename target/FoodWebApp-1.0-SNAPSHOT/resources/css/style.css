@@ -1169,7 +1169,6 @@ html{
 /*------------------------------------------------------------------ Instagram Feed -------------------------------------------------------------------*/
  .instagram-box{
      padding: 70px 0px;
-     background: url(../images/ins-bg.jpg) no-repeat center center;
      background-size: auto auto;
      -webkit-background-size: cover;
      -moz-background-size: cover;
@@ -1179,7 +1178,7 @@ html{
      position: relative;
 }
  .instagram-box::before{
-     background: rgba(0,0,0,0.9);
+/*     background: rgba(0,0,0,0.9);*/
      width: 100%;
      height: 100%;
      left: 0px;
@@ -1188,8 +1187,8 @@ html{
      position: absolute;
      z-index: 0;
 }
+
  .main-instagram.owl-carousel .owl-nav button.owl-prev{
-     background: #000000;
      position: absolute;
      z-index: 1;
      display: block;
@@ -1209,7 +1208,6 @@ html{
      transition: all 0.3s ease;
 }
  .main-instagram.owl-carousel .owl-nav button.owl-next{
-     background: #000000;
      position: absolute;
      z-index: 1;
      display: block;
@@ -1229,10 +1227,12 @@ html{
      transition: all 0.3s ease;
 }
  .main-instagram.owl-carousel .owl-nav button.owl-next:hover, .main-instagram.owl-carousel .owl-nav button.owl-prev:hover{
-     background: #b0b435;
+     background: #000000;
+     opacity: 0.3;
 }
  .ins-inner-box{
      position: relative;
+     margin-left: 10px;
 }
  .hov-in{
      opacity: 0;

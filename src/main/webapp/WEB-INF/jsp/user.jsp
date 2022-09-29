@@ -8,7 +8,8 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <c:url value="/css/style.css" var="css" />
         <link href="${css}" rel="stylesheet" >
-        
+     
+<div class="container">     
 <h1 class="text-center text-info">QUẢN LÝ NGƯỜI DÙNG</h1>
 
 <div class="spinner-border text-primary" id="myLoading"></div>
@@ -40,3 +41,4 @@
         loadAdminUser(`${endpoint}`);
     }
 </script>
+</div>

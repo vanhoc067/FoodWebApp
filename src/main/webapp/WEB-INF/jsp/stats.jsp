@@ -14,6 +14,7 @@
 
 <h1 class="text-center">THONG KE SAN PHAM VA DOANH THU </h1>
 
+<div class="container" >
 <nav class="navbar bg-light">
     <ul clas="navbar-nav">
         <li class="nav-item">
@@ -24,7 +25,7 @@
 </nav>
 
 <div class="row">
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-8 col-xs-12">
         <table class="table">
             <tr>
                 <th>Id</th>
@@ -40,13 +41,13 @@
             </c:forEach>
         </table>
     </div>
-    <div class="col-md-6 col-xs-12 ">
+    <div class="col-md-4 col-xs-12 ">
         <canvas id="myChart"></canvas>
     </div>
 </div>
-<br>
+        <br><br>
 <div class="row">
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-5 col-xs-12">
         <table class="table">
             <tr>
                 <th>Id</th>
@@ -63,8 +64,11 @@
             </tr>
             </c:forEach>
         </table>
+    </div>
+    <div class="col-md-7 col-xs-12 ">
         <canvas id="myChart2"></canvas>
     </div>
+</div>
 <!--    <div class="col-md-6 col-xs-12 ">
         <c:url value="/store/stats" var="action"/>
         <form action="${action}">
@@ -120,3 +124,4 @@
         revenueStats(labels2,data2);
     };
 </script>
+</div>
