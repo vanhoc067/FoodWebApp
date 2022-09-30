@@ -52,7 +52,10 @@
                                                             <td>${b.orderId.id}</td>
 
                                                             <td>${b.unitPrice}</td> 
-                                                            <td></td>  
+                                                            <td>
+                                                                <button class="btn btn-danger" >Xoa</button>
+                                                                <button class="btn btn-primary" >sửa</button>
+                                                            </td>  
                                                         </tr>
                                                     </c:if>
                                                 </c:forEach>

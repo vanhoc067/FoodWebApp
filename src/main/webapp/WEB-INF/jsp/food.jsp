@@ -14,6 +14,7 @@
         <c:set var="vanhoc" value="com.dvh.pojo.User[ id=${currentUser.id} ]"/>
     </c:when>
 </c:choose>
+<c:url value="/api/food/" var="enpoint" />
 
 
 
@@ -111,13 +112,16 @@
                                                             <td>${f.quantity}</td>
 
                                                             <td>${f.price}</td> 
-                                                            <td></td>  
+                                                            <td>
+                                                                <button id="btnDelete" class="btn btn-danger" onclick="deleteFoodByStore('${enpoint} + ${f.id}', ${f.id})">Xoa</button>
+                                                                <button class="btn btn-primary" >sửa</button>
+                                                            </td>  
                                                         </tr>
                                                     </c:if>
                                                 </c:forEach>
                                             </tbody>
                                             <c:if test="${check == false}">
-                                                <h3 class="text-danger">Không có đơn hàng nào!</h3>
+                                                <h3 class="text-danger">Không có món ăn nào!!</h3>
                                             </c:if>
                                         </table>
                                     </div>
@@ -125,12 +129,11 @@
                             </div><!--
                             <!-- Row end -->
                         </div>
-                        <div class="invoice-footer">
-                            <h1>Thank you for Buying.</h1>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+        <script src="<c:url value="/js/food.js"/>"></script>
 </div>
+

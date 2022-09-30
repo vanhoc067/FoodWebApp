@@ -22,7 +22,20 @@ function deleteFood(endpoint, id, btn) {
     });
 }
 
+function deleteFoodByStore(endpoint, id) {  
+    let r = document.getElementById(`row${id}`);
 
+    fetch(endpoint, {
+        method:'delete'
+    }).then(function(res) {
+        if(res.status !== 204)
+            alert("Something wrong!!!");
+     
+    }).catch(function(err) {
+        console.error(err);
+
+    });
+}
 
 function getFood(endpoint) {
     fetch(endpoint).then(function(res) {
@@ -40,7 +53,7 @@ function getFood(endpoint) {
                     <td>${data[i].price}</td>
                     <td>
                         <div class="spinner-border text-primary" style="display:none" id="load${data[i].id}"></div>
-                        <button class="btn btn-outline-primary" onclick="deleteFood('${endpoint + "/" + data[i].id}', ${data[i].id},this)">Xoa</button>
+                        <button class="btn btn-danger" onclick="deleteFood('${endpoint + "/" + data[i].id}', ${data[i].id},this)">Xoa</button>
                     </td>
                 </tr>`;
         
@@ -99,6 +112,7 @@ function addComment(endpoint, foodId) {
         `
         d.insertAdjacentHTML("beforebegin",h) ;
     })
+    
 }
 
 
