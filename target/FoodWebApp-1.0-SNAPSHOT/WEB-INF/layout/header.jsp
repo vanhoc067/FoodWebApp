@@ -118,6 +118,7 @@
                         <sec:authorize access="hasRole('ROLE_STORE')">
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/food" />">Quản lý món ăn</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/store_bill" />">Quản lý đơn hàng</a></li>
+                            <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/followdetail" />">Follower</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/store/stats" />">Thống kê</a></li>
                             <li class="nav-item"><a class="nav-link text-danger" href="<c:url value="/" />">
                                     <c:if test="${currentUser.image != null}">

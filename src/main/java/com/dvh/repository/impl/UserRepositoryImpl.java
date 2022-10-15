@@ -4,6 +4,7 @@
  */
 package com.dvh.repository.impl;
 
+import com.dvh.pojo.Followdetail;
 import com.dvh.pojo.User;
 import com.dvh.repository.UserRepository;
 import java.util.ArrayList;
@@ -18,6 +19,7 @@ import org.hibernate.Session;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -117,6 +119,7 @@ public class UserRepositoryImpl implements UserRepository {
             return false;
         }
     }
+
 
     
     

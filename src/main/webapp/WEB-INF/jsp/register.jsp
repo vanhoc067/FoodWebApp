@@ -12,7 +12,7 @@
 
 
 <c:url value="/register" var="action" />
-<div class="container">
+<div class="container" style="width: 500px">
     <h1 class="text-center text-danger">DANG KI</h1>
 
     <c:if test="${errMsg != null}">
@@ -62,7 +62,7 @@
             <label for="avatar" >Avatar</label>
             <form:input type="file" id="avatar" path="file" class="form-control"/>
         </div>
-        <div class="form-group">
+        <div class="form-group" style="text-align: center; padding: 10px">
             <input type="submit" value="DANG KI" class="btn btn-danger"/>
         </div>
     </div>

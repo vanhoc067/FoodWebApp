@@ -9,6 +9,8 @@
 <c:url value="/css/style.css" var="css" />
 <link href="${css}" rel="stylesheet" >
 <script src="sweetalert2.all.min.js"></script>
+<script src="<c:url value="/js/bill.js"/>"></script>
+<c:url value="/api/bill/" var="enpoint" />
 
 <div class="container">
     <div class="row gutters">
@@ -46,14 +48,15 @@
                                                 <c:forEach items="${bill}" var="b">
                                                     <c:if test="${currentUser.id == b.foodId.storeId.id}">
                                                         <c:set var="check" value="true"/>
-                                                        <tr style="padding:30px">
+                                                        <tr style="padding:30px" id="row${b.id}">
                                                             <td>${b.id}</td>
                                                             <td>${b.foodId.name}</td>
                                                             <td>${b.orderId.id}</td>
 
                                                             <td>${b.unitPrice}</td> 
                                                             <td>
-                                                                <button class="btn btn-danger" >Xoa</button>
+                                                                <div class="spinner-border text-primary" style="display:none" id="load${b.id}"></div>
+                                                                <button id ="btn${b.id}" class="btn btn-danger" onclick="deleteBillByStore('${enpoint} + ${b.id}', ${b.id})" >Xoa</button>
                                                                 <button class="btn btn-primary" >sửa</button>
                                                             </td>  
                                                         </tr>

@@ -6,6 +6,7 @@ package com.dvh.service.impl;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
+import com.dvh.pojo.Followdetail;
 import com.dvh.pojo.User;
 import com.dvh.repository.UserRepository;
 import com.dvh.service.UserService;
@@ -88,6 +89,7 @@ public class UserServiceImpl implements UserService {
     public boolean deleteUser(int id) {
         return this.userRepository.deleteUser(id);
     }
+
     
     
 }

@@ -10,7 +10,7 @@
 
 
 <c:url value="/login" var="action" />
-<div class="container">
+<div class="container" style="width: 400px;">
     <h1 class="text-center text-info display-6 ">DANG NHAP</h1>
 
     <c:if test="${param.error != null}">
@@ -35,7 +35,7 @@
             <input type="password" id="password" name="password" class="form-control"/>
         </div>
         <br>
-        <div class="form-group">
+        <div class="form-group" style="text-align: center;" >
             <input type="submit" value="DANG NHAP" class="btn btn-danger"/>
         </div>
         <br>

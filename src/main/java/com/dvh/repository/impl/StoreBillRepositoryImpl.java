@@ -51,5 +51,29 @@ public class StoreBillRepositoryImpl implements StoreBillRepository{
         Query query = s.createQuery(q);
      return query.getResultList();
     }
+
+    @Override
+    public List<Orderdetail> getAllBill() {
+        Session s = this.sessionFactory.getObject().getCurrentSession();
+        Query q = s.createQuery("From Orderdetail");
+        return q.getResultList();
+        
+    }
+
+    @Override
+    public boolean deleteBill(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+
+        try {
+            Orderdetail o = session.get(Orderdetail.class, id);
+            session.delete(o);
+
+            return true;
+        } catch (Exception ex) {
+            ex.printStackTrace();
+            return false;
+
+        }
+    }
     
 }

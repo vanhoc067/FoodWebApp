@@ -31,7 +31,7 @@ public class PaymentService {
     private static final String CLIENT_SECRET = "EAVyBnkfKGRyzJgedmIxfj7M231zMZl4fud6LrcTZdZyjfGvbDkeNRoC8Lb6mape8CBERdkDiG3UT7ye";
     private static final String MODE = "sandbox";
 
-    public Payment executePayment(String paymentId, String payerId) throws PayPalRESTException {
+        public Payment executePayment(String paymentId, String payerId) throws PayPalRESTException {
 		PaymentExecution paymentExecution = new PaymentExecution();
 		paymentExecution.setPayerId(payerId);
 		Payment payment = new Payment().setId(paymentId);
@@ -47,7 +47,7 @@ public class PaymentService {
 	public String authorizePayment(OrderDto orderDetail) throws PayPalRESTException {
 		
 		Payer payer = getPayerInformation();
-		RedirectUrls redirectUrls = getRedirectUrls();
+		RedirectUrls redirectUrls = getRedirectUrls(orderDetail);
 		List<Transaction> transactionList = getTransactionInformation(orderDetail);
 		
 		Payment requestPayment = new Payment();
@@ -117,10 +117,10 @@ public class PaymentService {
 		return transactionList;
 	}
 
-	private RedirectUrls getRedirectUrls() {
+	private RedirectUrls getRedirectUrls(OrderDto orderDetail) {
 		RedirectUrls redirectUrls = new RedirectUrls();
 		redirectUrls.setCancelUrl("http://localhost:8080/FoodWebApp/cancel");
-		redirectUrls.setReturnUrl("http://localhost:8080/FoodWebApp/success");
+		redirectUrls.setReturnUrl("http://localhost:8080/FoodWebApp/success" + "?" + orderDetail.getProductName());
 		return redirectUrls;
 	}
 

@@ -83,6 +83,7 @@ button {
     max-height: calc(94% - 60px);
     background: #ffffff;
     overflow: auto;
+    height: 311px !important;
 }
 .chat-input {
     flex: 0 0 auto;

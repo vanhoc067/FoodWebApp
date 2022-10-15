@@ -5,7 +5,9 @@
 package com.dvh.configs;
 
 import com.dvh.formatters.CategoryFormatter;
+import com.dvh.formatters.FollowFormatters;
 import com.dvh.formatters.StoreFormatter;
+import com.dvh.formatters.UserFormatters;
 import com.dvh.pojo.Category;
 import java.util.Properties;
 import java.util.ResourceBundle;
@@ -64,6 +66,8 @@ public class WebAppContextConfig implements WebMvcConfigurer {
     public void addFormatters(FormatterRegistry registry){
         registry.addFormatter(new CategoryFormatter());
         registry.addFormatter(new StoreFormatter());
+        registry.addFormatter(new UserFormatters());
+        registry.addFormatter(new FollowFormatters());
     }
 
     @Override

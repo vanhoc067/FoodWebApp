@@ -4,10 +4,13 @@
  */
 package com.dvh.controllers;
 
+import com.dvh.pojo.Followdetail;
 import com.dvh.pojo.Food;
 import com.dvh.pojo.User;
+import com.dvh.service.FollowDetailService;
 import com.dvh.service.FoodService;
 import com.dvh.service.StoreBillService;
+import com.dvh.service.StoreService;
 import com.dvh.service.UserService;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -46,7 +49,13 @@ public class FoodManageController {
     MailSender mailSender;
     
     @Autowired
+    private StoreService storeService;
+    
+    @Autowired
     private StoreBillService storeBillService;
+    
+    @Autowired
+    private FollowDetailService followDetailService;
     
     @GetMapping("/store_bill")
     public String listbill(Model model,@RequestParam Map<String, String> params, HttpSession session) {
@@ -57,6 +66,18 @@ public class FoodManageController {
         
         return "store_bill";
     }
+    
+    @GetMapping("/followdetail")
+    public String listfollow(Model model, HttpSession session) {
+        Boolean check = false;
+        model.addAttribute("stores", this.storeService.getStores());
+        model.addAttribute("follow", this.followDetailService.getListFollow());
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
+        model.addAttribute("check", check);
+        
+        return "followdetail";
+    }
+    
     
     @GetMapping("/food")
     public String list(Model model, HttpSession session) {
@@ -69,17 +90,18 @@ public class FoodManageController {
         
         return "food";
     }
-    @PostMapping("/food")
+    @PostMapping(value = "/food", produces="application/x-www-form-urlencoded;charset=UTF-8")
     public String add(Model model, @RequestParam Map<String, String> params, @ModelAttribute(value = "food") @Valid Food f, BindingResult r) {
         if (r.hasErrors()){
             return "food";
         } 
         
         if (this.foodService.addFood(f) == true){
-            List<User> u = userService.getListUsers(params);
-            for(int i = 0; i<u.size(); i++){
-                String email = u.get(i).getEmail();
-                senEmail("healthyfood047@gmail.com", email, "Mon an moi!!", "Chung toi vua co 1 mon an moi, co the ban se thich.");
+            List<Followdetail> folow = followDetailService.getListFollow();
+            for(int i = 0; i<folow.size(); i++){
+                String email = folow.get(i).getEmail();
+                String content = folow.get(i).getFollowId().getContent();
+                senEmail("healthyfood047@gmail.com", email, content, "Chung toi vua co 1 mon an moi, co the ban se thich.");
             }
             return "redirect:/";
             }
@@ -150,6 +172,7 @@ public class FoodManageController {
 
         mailSender.send(mailMessage);
     }
+    
     
 }
 

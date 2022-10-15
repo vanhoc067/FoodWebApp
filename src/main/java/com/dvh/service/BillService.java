@@ -15,5 +15,5 @@ import java.util.Map;
  */
 public interface BillService {
     List<FoodOrder> getBill(Map<String, String> params);
-    Orderdetail getBillById(int id);
+    FoodOrder getBillById(int id);
 }

@@ -27,5 +27,15 @@ public class StoreBillServiceImpl implements StoreBillService{
     public List<Orderdetail> getBill(Map<String, String> params) {
         return this.storeBillRepository.getBill(params);
     }
+
+    @Override
+    public List<Orderdetail> getAllBill() {
+        return this.storeBillRepository.getAllBill();
+    }
+
+    @Override
+    public boolean deleteBill(int id) {
+        return this.storeBillRepository.deleteBill(id);
+    }
     
 }

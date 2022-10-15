@@ -29,9 +29,12 @@ public class BillController {
     @GetMapping("/bill")
     public String bill(Model model, @RequestParam Map<String, String> params, HttpSession session) {
         Boolean check = false;
+        String p = params.toString();
+        p = p.replaceAll("[={}]", "");
         model.addAttribute("bill", this.billService.getBill(params));
         model.addAttribute("currentUser", session.getAttribute("currentUser"));
         model.addAttribute("check", check);
+        model.addAttribute("testID", p);
         
         return "bill";
     }

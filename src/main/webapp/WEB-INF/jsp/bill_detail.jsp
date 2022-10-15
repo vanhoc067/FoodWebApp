@@ -22,11 +22,11 @@
             </tr>
             <tr>
                 <td>Giá sản phẩm:</td>
-                <td><input type="text" name="subtotal" value="${bill.orderId.amount}"/></td>
+                <td><input type="text" name="subtotal" value="${bill.amount}"/></td>
             </tr>
             <tr>
                 <td>Tổng tiền thanh toán: </td>
-                <td><input type="text" name="total" value="${bill.orderId.amount}"/></td>
+                <td><input type="text" name="total" value="${bill.amount}"/></td>
             </tr>
             <tr>
                 <td  colspan="2" align="center">

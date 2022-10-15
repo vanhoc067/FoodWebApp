@@ -29,7 +29,7 @@ public class BillServiceImpl implements BillService{
     }
 
     @Override
-    public Orderdetail getBillById(int id) {
+    public FoodOrder getBillById(int id) {
         return this.billRepository.getBillById(id);
     }
     

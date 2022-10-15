@@ -24,16 +24,21 @@ function deleteFood(endpoint, id, btn) {
 
 function deleteFoodByStore(endpoint, id) {  
     let r = document.getElementById(`row${id}`);
-
+    let load = document.getElementById(`load${id}`);
+    let btn = document.getElementById(`btn${id}`);
+    load.style.display= "block";
+    btn.style.display = "none";
     fetch(endpoint, {
         method:'delete'
     }).then(function(res) {
         if(res.status !== 204)
             alert("Something wrong!!!");
-     
+        load.style.display = "none";
+        r.style.display = "none";
     }).catch(function(err) {
         console.error(err);
-
+        btn.style.display = "block";
+        load.style.display = "none";
     });
 }
 

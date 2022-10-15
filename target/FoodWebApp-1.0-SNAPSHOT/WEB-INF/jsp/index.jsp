@@ -371,7 +371,7 @@
                                 <c:forEach items="${stores}" var="s">
                                     <div class="col-md-6 col-lg-4 col-xl-4">
                                         <div class="blog-box">
-                                            <div class="blog-img">
+                                            <div class="blog-img editImg">
                                                 <img src="<c:url value="${s.image}" />" class="img-fluid" alt="Image" />
                                             </div>
                                             <div class="blog-content">
@@ -434,35 +434,52 @@
                 <!-- Start Instagram Feed  -->
                 
 
-
-                <button class="nut-mo-chatbox" onclick="moForm()"><i class="fab fa-facebook-messenger"></i></button>
-                <section class="chatbox" id="myForm">
-                    <div class="nut-dong-chatbox">
-                        <button class="bt" onclick="dongForm()"><i class="fa fa-minus" style="font-size:20px; color: white"></i></button>
-                    </div>
-                    <section class="chat-window">
-                        <li style="display: none" id="name">
-                            <c:if test="${pageContext.request.userPrincipal.name != null}">
-                                ${pageContext.request.userPrincipal.name}
-                            </c:if>
-                        </li>
-                        <div id="chat">
-                            <!-- messages will display here -->
-                            <ul id="messages"></ul>
+                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                    <button class="nut-mo-chatbox" onclick="moForm()"><i class="fab fa-facebook-messenger"></i></button>
+                    <section class="chatbox" id="myForm">
+                        <div class="nut-dong-chatbox">
+                            <button class="bt" onclick="dongForm()"><i class="fa fa-minus" style="font-size:20px; color: white"></i></button>
                         </div>
-                    </section>
-                    <form class="chat-input" id="message-form">
-                        <input id="message-input" type="text" placeholder="Type a message" />
-                        <button id="message-btn" type="submit">
-                            <i class="fa fa-paper-plane" style="font-size:30px; color: #0084ff;"></i>
-                        </button>
-                    </form>
-                </section>  
+                        <section class="chat-window">
+                            <li style="display: none" id="name">
+                                <c:if test="${pageContext.request.userPrincipal.name != null}">
+                                    ${pageContext.request.userPrincipal.name}
+                                </c:if>
+                            </li>
+                            <div id="chat">
+                                <!-- messages will display here -->
+                                <ul id="messages"></ul>
+                            </div>
+                        </section>
+                        <form class="chat-input" id="message-form">
+                            <input id="message-input" type="text" placeholder="Type a message" />
+                            <button id="message-btn" type="submit">
+                                <i class="fa fa-paper-plane" style="font-size:30px; color: #0084ff;"></i>
+                            </button>
+                        </form>
+                    </section> 
+                </c:if>
                 <br><br>
+                
                 <br><br>
+                <script>
+                    <c:set var="api" value="${api}"/>
+                    <c:set var="aut" value="${aut}"/>
+                    <c:set var="data" value="${data}"/>
+                    <c:set var="pro" value="${pro}"/>
+                    <c:set var="sto" value="${sto}"/>
+                    <c:set var="mes" value="${mes}"/>
+                    <c:set var="app" value="${app}"/>
+
+
+                window.onload = function () {
+                    getFirebase('${api}', '${aut}', '${data}', '${pro}', '${sto}', '${mes}', '${app}');
+                }
+                </script>    
+                
+                <h1>${firebase}</h1>
 
                 <!-- End Instagram Feed  -->
-
 
                 <script src="<c:url value="/js/cart.js" />"/>
                 <script src="<c:url value="/js/food.js" />"></script>

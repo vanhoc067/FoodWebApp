@@ -97,5 +97,10 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/food_admin.jsp" />
     </definition>
+    <definition name="followdetail" extends="baseLayout">
+        <put-attribute name="title" value="nguoi theo gio" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/followdetail.jsp" />
+    </definition>
 </tiles-definitions>
 

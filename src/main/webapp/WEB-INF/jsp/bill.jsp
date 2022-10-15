@@ -11,25 +11,13 @@
 <link href="${css}" rel="stylesheet" >
 <link href="${css1}" rel="stylesheet" >
 
-
-
+<h1>${testID}</h1>
 <div class="container">
     <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
             <div class="card">
                 <div class="card-body p-0">
                     <div class="invoice-container">
-                        <div class="invoice-header">
-                            <!-- Row end -->
-                            <!-- Row start -->
-                            <div class="row gutters">
-                                <div class="col-xl-19 col-lg-9 col-md-12 col-sm-12 col-12">
-                                    <div class="invoice-details">
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- Row end -->
-                        </div>
                         <div class="invoice-body">
                             <!-- Row start -->
                             <div class="row gutters">
@@ -42,8 +30,7 @@
                                                     <th>Tên khách hàng</th>
                                                     <th>Ngày tạo</th>
                                                     <th>Thành tiền</th>
-                                                    <th></th>
-                                                    <th></th>
+                                                    <th>Thanh toán</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
@@ -57,18 +44,17 @@
 
                                                             <td>${b.amount}</td>
                                                             <td>
-                                                                <div class="d-grid">
-                                                                    <a style="text-align: center" href="#" /><button class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
-                                                                </div>
+                                                                <c:if test="${testID == b.id}">
+                                                                    <i style="color: green; font-size: 30px;" class="fa-solid fa-circle-check"></i>
+                                                                </c:if>
+                                                                <c:if test="${testID != b.id}">
+                                                                    <div class="d-grid" style="display: flex">
+                                                                        <a style="text-align: center" href="#" /><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
+                                                                        <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán online</button></a>
+                                                                    </div>
+                                                                </c:if>
 
                                                             </td>
-                                                            <td>
-                                                                <div class="d-grid">
-                                                                    <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button class="btn btn-danger btn-block">Thanh toán online</button></a>
-                                                                </div>
-
-                                                            </td>
-
                                                         </tr>
                                                     </c:if>
                                                 </c:forEach>

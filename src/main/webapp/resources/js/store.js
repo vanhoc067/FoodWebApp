@@ -49,3 +49,17 @@ function addStoreComment(endpoint, storeId) {
     })
 }
 
+function deletefollow(endpoint, id) {
+    let btn = document.getElementById(`btnXoa`);
+    btn.style.display = "none";
+    fetch(endpoint, {
+        method:'delete'
+    }).then(function(res) {
+        if(res.status !== 204)
+            alert("Something wrong!!!");
+    }).catch(function(err) {
+        console.error(err);
+        btn.style.display = "block";
+    });
+}
+

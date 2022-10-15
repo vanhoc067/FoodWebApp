@@ -37,6 +37,7 @@ public class BillRepositoryImpl implements BillRepository {
     
     @Override
     public List<FoodOrder> getBill(Map<String, String> params) {
+        params = null;
         Session s = this.sessionFactory.getObject().getCurrentSession();
         CriteriaBuilder b = s.getCriteriaBuilder();
         CriteriaQuery<FoodOrder> q = b.createQuery(FoodOrder.class);
@@ -75,9 +76,9 @@ public class BillRepositoryImpl implements BillRepository {
     }
 
     @Override
-    public Orderdetail getBillById(int id) {
+    public FoodOrder getBillById(int id) {
         Session session = this.sessionFactory.getObject().getCurrentSession();
-        return session.get(Orderdetail.class, id);
+        return session.get(FoodOrder.class, id);
     }
     
 }

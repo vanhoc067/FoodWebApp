@@ -14,4 +14,6 @@ import java.util.Map;
  */
 public interface StoreBillService {
     List<Orderdetail> getBill(Map<String, String> params);
+    List<Orderdetail> getAllBill();
+    boolean deleteBill(int id);
 }

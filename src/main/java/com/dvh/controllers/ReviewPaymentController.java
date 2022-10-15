@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Controller
 public class ReviewPaymentController {
-    @RequestMapping(path = "/review_payment", method = RequestMethod.GET)
+    @RequestMapping(path = "/bill_detail/review_payment", method = RequestMethod.GET)
     public ModelAndView printHello(@RequestParam(name = "paymentId") String paymentId,
             @RequestParam(name = "PayerID") String payerId) {
 

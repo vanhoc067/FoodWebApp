@@ -106,14 +106,15 @@
                                                 <c:forEach items="${foodList}" var="f">
                                                     <c:if test="${currentUser.id == f.storeId.userId.id}">
                                                         <c:set var="check" value="true"/>
-                                                        <tr style="padding:30px">
+                                                        <tr style="padding:30px" id="row${f.id}">
                                                             <td><img style="width:120px" src="<c:url value="${f.image}"/>" class="img-fluid" alt="Image" /></td>
                                                             <td>${f.name}</td>
                                                             <td>${f.quantity}</td>
 
                                                             <td>${f.price}</td> 
                                                             <td>
-                                                                <button id="btnDelete" class="btn btn-danger" onclick="deleteFoodByStore('${enpoint} + ${f.id}', ${f.id})">Xoa</button>
+                                                                <div class="spinner-border text-primary" style="display:none" id="load${f.id}"></div>
+                                                                <button id="btn${f.id}" class="btn btn-danger" onclick="deleteFoodByStore('${enpoint} + ${f.id}', ${f.id}, 'btn${f.id}')">Xoa</button>
                                                                 <button class="btn btn-primary" >sửa</button>
                                                             </td>  
                                                         </tr>

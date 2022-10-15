@@ -2,22 +2,44 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/JavaScript.js to edit this template
  */
+ 
 
 var firebaseConfig = {
-  apiKey: "AIzaSyBmu4ktn7tq4m97FP57dIc5japA92ny5Zo",
-  authDomain: "chat-realtime-aa198.firebaseapp.com",
-  databaseURL: "https://chat-realtime-aa198-default-rtdb.firebaseio.com",
-  projectId: "chat-realtime-aa198",
-  storageBucket: "chat-realtime-aa198.appspot.com",
-  messagingSenderId: "28073263411",
-  appId: "1:28073263411:web:991c9d3e842085b7c3be46",
-};  
+    apiKey: "AIzaSyDSexUjjQVUAd_ZOOx7XTeKjrwHAkTm-Hg",
+    authDomain: "realtime-507f2.firebaseapp.com",
+    databaseURL: "https://realtime-507f2-default-rtdb.firebaseio.com",
+    projectId: "realtime-507f2",
+    storageBucket: "realtime-507f2.appspot.com",
+    messagingSenderId: "169352533661",
+    appId: "1:169352533661:web:f2095dc2f210391aa5a674"
+  };
 
+
+//function getFirebase(api, aut, data, pro, sto, mes, app){
+//    firebaseConfig = {
+//        apiKey: api,
+//        authDomain: aut,
+//        databaseURL: data,
+//        projectId: pro,
+//        storageBucket: sto,
+//        messagingSenderId: mes,
+//        appId: app
+//    };
+//}
+
+/*Hàm Mở Form*/
+function moForm() {
+    document.getElementById("myForm").style.display = "block";
+  }
+  /*Hàm Đóng Form*/
+  function dongForm() {
+    document.getElementById("myForm").style.display = "none";
+  }
 
 firebase.initializeApp(firebaseConfig);
 
-
 const db = firebase.database ();
+
 const username = document.getElementById("name").innerHTML
 document.getElementById ("message-form"). addEventListener ("submit", sendMessage);
 
@@ -56,12 +78,5 @@ fetchChat.on("child_added", function (snapshot) {
 });
 
 
-/*Hàm Mở Form*/
-function moForm() {
-    document.getElementById("myForm").style.display = "block";
-  }
-  /*Hàm Đóng Form*/
-  function dongForm() {
-    document.getElementById("myForm").style.display = "none";
-  }
+
 

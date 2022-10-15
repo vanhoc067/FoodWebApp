@@ -7,7 +7,10 @@ package com.dvh.controllers;
 import com.dvh.dto.OrderDto;
 import com.dvh.service.PaymentService;
 import com.paypal.base.rest.PayPalRESTException;
+import java.util.Map;
 import org.springframework.stereotype.Controller;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.model;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,7 +24,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AuthPaymentController {
     @GetMapping("/success")
-    public String success() {
+    public String success(Model model, @RequestParam Map<String, String> params) {
+        String str = params.toString();
+        str = str.replaceAll("[{} ]", "");
+        str = str.substring(0, 2);
+        model.addAttribute("testID", str);
         return "success";
     }
 
@@ -34,11 +41,15 @@ public class AuthPaymentController {
 
         OrderDto orderDetail = new OrderDto(product, subtotal, total);
         System.out.println(orderDetail);
+        System.out.println("kshckwednackj dahcladnechdaojclkasmc dxasf " + orderDetail.getProductName());
 
         try {
             PaymentService paymentService = new PaymentService();
             String approvalLink = paymentService.authorizePayment(orderDetail);
-            ModelAndView mav = new ModelAndView("redirect:" + approvalLink);
+            String url = "redirect:" + approvalLink + "&key=" + orderDetail.getProductName();
+            ModelAndView mav = new ModelAndView(url);
+            mav.addObject("id", orderDetail);
+            
             return mav;
         } catch (PayPalRESTException ex) {
             ex.printStackTrace();

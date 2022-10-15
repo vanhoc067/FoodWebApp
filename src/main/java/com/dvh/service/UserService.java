@@ -4,6 +4,7 @@
  */
 package com.dvh.service;
 
+import com.dvh.pojo.Followdetail;
 import com.dvh.pojo.User;
 import java.util.List;
 import java.util.Map;
