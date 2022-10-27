@@ -90,6 +90,11 @@ public class UserServiceImpl implements UserService {
         return this.userRepository.deleteUser(id);
     }
 
+    @Override
+    public boolean updateUser(User user, int id) {
+        return this.userRepository.updateUser(user, id);
+    }
+
     
     
 }

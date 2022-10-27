@@ -53,6 +53,6 @@ public class UserController {
         model.addAttribute("errMsg", errMsg);
         return "register";
     }
-    
+
     
 }

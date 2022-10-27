@@ -15,7 +15,8 @@ function delUser(endpoint, id){
     });
 }
 
-function loadAdminUser(endpoint){
+function loadAdminUser(endpoint, userDetail){
+    console.log("userDetail", userDetail)
     fetch(endpoint).then(function(res){
         return res.json();
     }).then(function(data){
@@ -46,7 +47,7 @@ function loadAdminUser(endpoint){
                 <td>
                     <div class="spinner-border text-primary" style="display: none" id="load${data[i].id}"></div>
                     <button class="btn btn-danger" onclick="delUser('${endpoint + "/" + data[i].id}', ${data[i].id})" >xóa</button>
-                    <button class="btn btn-primary" >sửa</button>
+                    <a href="${userDetail}/${data[i].id}" ><button class="btn btn-primary" type="button">sửa</button></a>
                 </td>
             </tr>
             `

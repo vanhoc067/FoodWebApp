@@ -16,4 +16,5 @@ import java.util.Map;
 public interface BillService {
     List<FoodOrder> getBill(Map<String, String> params);
     FoodOrder getBillById(int id);
+    boolean checkPay(FoodOrder  f, int id);
 }

@@ -99,7 +99,7 @@ public class User implements Serializable {
     @Column(name = "address")
     private String address;
     @Column(name = "active")
-    private Boolean active;
+    private Integer active;
     @Size(max = 255)
     @Column(name = "image")
     private String image;
@@ -209,11 +209,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public Boolean getActive() {
+    public Integer getActive() {
         return active;
     }
 
-    public void setActive(Boolean active) {
+    public void setActive(Integer active) {
         this.active = active;
     }
 

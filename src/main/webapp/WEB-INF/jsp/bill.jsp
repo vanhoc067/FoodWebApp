@@ -6,12 +6,12 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <c:url value="/css/style.css" var="css" />
 <c:url value="/css/bill.css" var="css1" />
 <link href="${css}" rel="stylesheet" >
 <link href="${css1}" rel="stylesheet" >
 
-<h1>${testID}</h1>
 <div class="container">
     <div class="row gutters">
         <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
@@ -36,18 +36,18 @@
                                             <tbody>
                                                 <c:forEach items="${bill}" var="b">
                                                     <c:if test="${currentUser.id == b.userId.id}">
-                                                        <c:set var="check" value="true"/>
+                                                        <c:set var="check" value="true"></c:set>
                                                         <tr style="padding:30px">
                                                             <td>${b.id}</td>
                                                             <td>${b.userId.username}</td>
                                                             <td>${b.createdDate}</td>
 
                                                             <td>${b.amount}</td>
-                                                            <td>
-                                                                <c:if test="${testID == b.id}">
+                                                            <td style="text-align: center">
+                                                                <c:if test="${b.status == 1}">
                                                                     <i style="color: green; font-size: 30px;" class="fa-solid fa-circle-check"></i>
                                                                 </c:if>
-                                                                <c:if test="${testID != b.id}">
+                                                                <c:if test="${b.status == 0}">
                                                                     <div class="d-grid" style="display: flex">
                                                                         <a style="text-align: center" href="#" /><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
                                                                         <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán online</button></a>

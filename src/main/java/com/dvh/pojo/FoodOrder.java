@@ -49,6 +49,8 @@ public class FoodOrder implements Serializable {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     @ManyToOne
     private User userId;
+    @Column(name = "status")
+    private Integer status;
 
     public FoodOrder() {
         createdDate = new Date();
@@ -113,6 +115,20 @@ public class FoodOrder implements Serializable {
     @Override
     public String toString() {
         return "com.dvh.pojo.FoodOrder[ id=" + id + " ]";
+    }
+
+    /**
+     * @return the status
+     */
+    public Integer getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(Integer status) {
+        this.status = status;
     }
     
 }

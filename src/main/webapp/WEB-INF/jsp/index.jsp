@@ -18,48 +18,6 @@
         <div class="container">
             <!-- Start Slider -->
             <br><br>
-            <h1 class="text-center text-info">Tìm kiếm món ăn</h1>
-            <c:url value="/" var="foodname" />
-            <form action="${foodname}">
-                <div class="mb-3 mt-3">
-                    <label for="email" class="form-label">Food name</label>
-                    <input name="kw"  type="text" class="form-control">
-                </div>
-            </form>
-            <c:url value="/" var="fromprice"/>
-            <form action="${fromprice}">
-                <div class="mb-3">
-                    <label for="pwd" class="form-label">From price</label>
-                    <input name="fromPrice"  type="text" class="form-control">
-                </div>
-            </form>
-            <c:url value="/" var="toprice" />
-            <form action="${toprice}">
-                <div class="mb-3">
-                    <label for="pwd" class="form-label">To price</label>
-                    <input name="toPrice"  type="number" class="form-control">
-                </div>
-            </form>
-            <c:url value="/" var="category"/>
-            <form action="${category}">
-                <div class="mb-3">
-                    <label for="pwd" class="form-label">Danh muc</label>
-                    <input name="cateId" type="text" class="form-control">
-                </div>
-            </form>
-            <c:url value="/" var="store"/>
-            <form action="${store}">
-                <div class="mb-3">
-                    <label for="pwd" class="form-label">Cua hang</label>
-                    <input name="storeId"  type="text" class="form-control">
-                </div>
-            </form>
-            <div class="d-grid gap-2">
-                <button type="submit" class="btn btn-primary btn-lg">Tìm</button>
-            </div>
-        </div>
-                <br><br>
-
             <div id="slides-shop" class="cover-slides">
                 <ul class="slides-container">
                     <li class="text-center">
@@ -241,8 +199,73 @@
                                     <button data-filter=".top-featured">Top featured</button>
                                     <button data-filter=".best-seller">Best seller</button>
                                 </div>
+                                
+                                <div class="search-wrapper">
+                                    <div class="input-holder">
+                                        <div class="editForm search-input">
+                                            <c:url value="/" var="foodname" />
+                                            <form action="${foodname}">
+                                                <div class="mb-3 mt-3">
+                                                    <label for="email" style="margin-right: 200px;" class="form-label">Food name</label>
+                                                    <div class="editInput">
+                                                        <input name="kw"  type="text" class="form-control">
+                                                        <button class="button-28" type="submit">Tìm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <c:url value="/" var="fromprice"/>
+                                            <form action="${fromprice}">
+                                                <div class="mb-3">
+                                                    <label for="pwd" style="margin-right: 200px;" class="form-label">From price</label>
+                                                    <div class="editInput">
+                                                        <input name="fromPrice"  type="text" class="form-control">
+                                                        <button class="button-28" type="submit">Tìm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <c:url value="/" var="toprice" />
+                                            <form action="${toprice}">
+                                                <div class="mb-3">
+                                                    <label for="pwd"  style="margin-right: 200px;" class="form-label">To price</label>
+                                                    <div class="editInput">
+                                                        <input name="toPrice"  type="number" class="form-control">
+                                                        <button class="button-28" type="submit">Tìm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <c:url value="/" var="category"/>
+                                            <form action="${category}">
+                                                <div class="mb-3">
+                                                    <label for="pwd" style="margin-right: 200px;" class="form-label">Danh muc</label>
+                                                    <div class="editInput">
+                                                        <input name="cateId" type="text" class="form-control">
+                                                        <button class="button-28" type="submit">Tìm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                            <c:url value="/" var="store"/>
+                                            <form action="${store}">
+                                                <div class="mb-3">
+                                                    <label for="pwd" style="margin-right: 200px;" class="form-label">Cua hang</label>
+                                                    <div class="editInput">
+                                                        <input name="storeId"  type="text" class="form-control">
+                                                        <button class="button-28" type="submit">Tìm</button>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </div>
+        <!--                                <input type="text" class="search-input" placeholder="Type to search" />-->
+                                        <button class="search-icon" onclick="searchToggle(this, event);"><span></span></button>
+                                    </div>
+                                    <span class="close" onclick="searchToggle(this, event);"></span>
+                                </div>
                             </div>
                         </div>
+                    </div>
+                    <div class="container">
+                        <!-- Start Slider -->   
+
+                            <br><br>
                     </div>
                     <ul class="pagination">
                         <c:forEach begin="1" end="${Math.ceil(foodCounter/pageSize)}" var="i">
@@ -475,6 +498,19 @@
                 window.onload = function () {
                     getFirebase('${api}', '${aut}', '${data}', '${pro}', '${sto}', '${mes}', '${app}');
                 }
+                
+                function searchToggle(obj, evt){
+                    var container = $(obj).closest('.search-wrapper');
+                        if(!container.hasClass('active')){
+                            container.addClass('active');
+                            evt.preventDefault();
+                        }
+                        else if(container.hasClass('active') && $(obj).closest('.input-holder').length == 0){
+                            container.removeClass('active');
+                            // clear input
+                            container.find('.search-input').val('');
+                }
+}
                 </script>    
                 
                 <h1>${firebase}</h1>

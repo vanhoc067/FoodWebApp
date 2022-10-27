@@ -102,5 +102,10 @@ Software Foundation//DTD Tiles Configuration 3.0//EN"
         <put-attribute name="content"
                        value="/WEB-INF/jsp/followdetail.jsp" />
     </definition>
+    <definition name="user_detail" extends="baseLayout">
+        <put-attribute name="title" value="chi tiet nguoi dung" />
+        <put-attribute name="content"
+                       value="/WEB-INF/jsp/user_detail.jsp" />
+    </definition>
 </tiles-definitions>
 

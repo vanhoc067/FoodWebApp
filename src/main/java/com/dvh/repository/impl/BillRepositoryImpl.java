@@ -80,5 +80,21 @@ public class BillRepositoryImpl implements BillRepository {
         Session session = this.sessionFactory.getObject().getCurrentSession();
         return session.get(FoodOrder.class, id);
     }
+
+    @Override
+    public boolean checkPay(FoodOrder f, int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            FoodOrder fo = session.get(FoodOrder.class, id);
+            fo.setStatus(f.getStatus());
+            session.save(fo);
+            
+            return true;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
     
 }

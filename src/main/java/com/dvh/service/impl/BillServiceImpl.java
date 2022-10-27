@@ -32,5 +32,10 @@ public class BillServiceImpl implements BillService{
     public FoodOrder getBillById(int id) {
         return this.billRepository.getBillById(id);
     }
+
+    @Override
+    public boolean checkPay(FoodOrder f, int id) {
+        return this.billRepository.checkPay(f,id);
+    }
     
 }

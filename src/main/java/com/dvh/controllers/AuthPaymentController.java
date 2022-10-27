@@ -5,6 +5,7 @@
 package com.dvh.controllers;
 
 import com.dvh.dto.OrderDto;
+import com.dvh.pojo.FoodOrder;
 import com.dvh.service.PaymentService;
 import com.paypal.base.rest.PayPalRESTException;
 import java.util.Map;
@@ -26,8 +27,9 @@ public class AuthPaymentController {
     @GetMapping("/success")
     public String success(Model model, @RequestParam Map<String, String> params) {
         String str = params.toString();
-        str = str.replaceAll("[{} ]", "");
-        str = str.substring(0, 2);
+        str = str.substring(1, 3);
+        str = str.replaceAll("[{} =]", "");
+        model.addAttribute("foodOrder", new FoodOrder());
         model.addAttribute("testID", str);
         return "success";
     }

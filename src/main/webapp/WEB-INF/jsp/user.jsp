@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <c:url value="/css/style.css" var="css" />
         <link href="${css}" rel="stylesheet" >
-     
+<c:url value="/admin/user_detail" var="userDetail" />
 <div class="container">     
 <h1 class="text-center text-info">QUẢN LÝ NGƯỜI DÙNG</h1>
 
@@ -38,7 +38,7 @@
 <script>
     <c:url value="/api/user" var="endpoint" />
     window.onload = function(){
-        loadAdminUser(`${endpoint}`);
+        loadAdminUser(`${endpoint}`, `${userDetail}`);
     }
 </script>
 </div>
