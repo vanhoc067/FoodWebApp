@@ -286,4 +286,24 @@ public class FoodRespositoryImpl implements FoodRepository {
         
         return q.getResultList();
     }
+
+    @Override
+    public boolean updateUser(Food food, int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            Food f = session.get(Food.class, id);
+            f.setName(food.getName());
+            f.setQuantity(food.getQuantity());
+            f.setStatus(food.getStatus());
+            f.setPrice(food.getPrice());
+            
+            session.save(f);
+            
+            return true;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
 }

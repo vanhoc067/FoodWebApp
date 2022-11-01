@@ -8,7 +8,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <c:url value="/css/style.css" var="css" />
         <link href="${css}" rel="stylesheet" >
-<c:url value="/admin/user_detail" var="userDetail" />
+<c:url value="/admin/userdetail" var="userDetail" />
 <div class="container">     
 <h1 class="text-center text-info">QUẢN LÝ NGƯỜI DÙNG</h1>
 

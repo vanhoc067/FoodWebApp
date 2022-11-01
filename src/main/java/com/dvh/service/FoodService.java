@@ -26,4 +26,5 @@ public interface FoodService {
     List<Comment> getComments(int foodId);
     Comment addComment(String content, int foodId);
     List<Food> getFoodstore();
+    boolean updateUser(Food food, int id);
 }

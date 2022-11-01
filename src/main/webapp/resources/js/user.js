@@ -24,10 +24,10 @@ function loadAdminUser(endpoint, userDetail){
         let msg ="";
         let check ="";
         for (let i = 0; i<data.length; i++) {
-            if(data[i].active === true){
+            if(data[i].active === 1){
                 check = "checked";
             }
-            if(data[i].active === false){
+            if(data[i].active === 0){
                 check = "";
             }
             msg += `
@@ -47,7 +47,7 @@ function loadAdminUser(endpoint, userDetail){
                 <td>
                     <div class="spinner-border text-primary" style="display: none" id="load${data[i].id}"></div>
                     <button class="btn btn-danger" onclick="delUser('${endpoint + "/" + data[i].id}', ${data[i].id})" >xóa</button>
-                    <a href="${userDetail}/${data[i].id}" ><button class="btn btn-primary" type="button">sửa</button></a>
+                    <a href="${userDetail}?${data[i].id}" ><button class="btn btn-primary" type="button">sửa</button></a>
                 </td>
             </tr>
             `

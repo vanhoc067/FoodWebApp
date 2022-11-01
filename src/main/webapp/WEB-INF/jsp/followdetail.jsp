@@ -58,7 +58,6 @@
                                                                 <td>
                                                                     <div class="spinner-border text-primary" style="display:none" id="load${f.id}"></div>
                                                                     <button id="btn${f.id}" class="btn btn-danger" onclick="deletefollow('${enpoint} + ${f.id}', ${f.id})">Xóa</button>
-                                                                    <button class="btn btn-primary" >Sửa</button>
                                                                 </td>  
                                                             </tr>
                                                         </c:if>

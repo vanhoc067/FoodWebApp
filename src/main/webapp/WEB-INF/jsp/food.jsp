@@ -115,7 +115,7 @@
                                                             <td>
                                                                 <div class="spinner-border text-primary" style="display:none" id="load${f.id}"></div>
                                                                 <button id="btn${f.id}" class="btn btn-danger" onclick="deleteFoodByStore('${enpoint} + ${f.id}', ${f.id}, 'btn${f.id}')">Xoa</button>
-                                                                <button class="btn btn-primary" >sửa</button>
+                                                                <a href="<c:url value="/store/fooddetail?${f.id}" />" ><button class="btn btn-primary" type="button">sửa</button></a>
                                                             </td>  
                                                         </tr>
                                                     </c:if>

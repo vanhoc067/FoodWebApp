@@ -14,6 +14,7 @@ com\dvh\service\FollowDetailService.class
 com\dvh\service\BillService.class
 com\dvh\configs\DispatcherServletInit.class
 com\dvh\utils\Utils.class
+com\dvh\controllers\AuthPaymentController.class
 com\dvh\service\PaymentService.class
 com\dvh\pojo\Store_.class
 com\dvh\configs\SecurityWebApplicationInitializer.class
@@ -26,6 +27,7 @@ com\dvh\service\impl\UserServiceImpl.class
 com\dvh\formatters\StoreFormatter.class
 com\dvh\service\impl\StoreBillServiceImpl.class
 com\dvh\repository\StoreRepository.class
+com\dvh\controllers\BillController.class
 com\dvh\controllers\ApiStoreCommentController.class
 com\dvh\controllers\IndexController.class
 com\dvh\service\impl\StoreServiceImpl.class

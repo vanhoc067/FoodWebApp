@@ -52,23 +52,26 @@ public class AdminController {
         return "user";
     }
     
-    @GetMapping("/user_detail/{id}")
-    public String user_detail(Model model, @PathVariable(value = "id") int id) {
+    @GetMapping("/userdetail")
+    public String user_detail(Model model, @RequestParam Map<String, String> params) {
+        String id = params.toString();
+        id = id.replaceAll("[={}]", "");
+        Integer intId = Integer.parseInt(id);
         model.addAttribute("updateUser", new User());
-        model.addAttribute("userById", this.userService.getUserById(id));
-        model.addAttribute("id", id);
-        return "user_detail";
+        model.addAttribute("userById", this.userService.getUserById(intId));
+        model.addAttribute("intId", intId);
+        return "userdetail";
     }
     
-    @PostMapping("/user_detail/{id}")
-    public String updateUser(Model model, @ModelAttribute(value = "updateUser") @Valid User user, @PathVariable(value = "id") int id, BindingResult r) {
+    @PostMapping("/userdetail/{intId}")
+    public String updateUser(Model model, @ModelAttribute(value = "updateUser") @Valid User user, @PathVariable(value = "intId") int intId, BindingResult r) {
         if (!r.hasErrors()){
-            if (this.userService.updateUser(user, id) == true){
+            if (this.userService.updateUser(user, intId) == true){
             return "redirect:/admin/user";
             }
         } 
 //        return "redirect:/admin/user";
-        return "user_detail/{id}";
+        return "userdetail";
     }
     
     

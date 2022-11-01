@@ -28,11 +28,11 @@
     <form method="post" action="${action}">
         <div class="form-group">
             <label for="username" >Username</label>
-            <input type="text" id="username" name="username" class="form-control"/>
+            <input type="text" id="username" name="username" class="form-control editInputForm"/>
         </div>
         <div class="form-group">
             <label for="password" >Password</label>
-            <input type="password" id="password" name="password" class="form-control"/>
+            <input type="password" id="password" name="password" class="form-control editInputForm"/>
         </div>
         <br>
         <div class="form-group" style="text-align: center;" >

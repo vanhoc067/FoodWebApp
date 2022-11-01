@@ -6,7 +6,10 @@ package com.dvh.controllers;
 
 import com.dvh.pojo.Followdetail;
 import com.dvh.pojo.Food;
+import com.dvh.pojo.FoodOrder;
+import com.dvh.pojo.Orderdetail;
 import com.dvh.pojo.User;
+import com.dvh.service.BillService;
 import com.dvh.service.FollowDetailService;
 import com.dvh.service.FoodService;
 import com.dvh.service.StoreBillService;
@@ -27,6 +30,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -57,12 +61,14 @@ public class FoodManageController {
     @Autowired
     private FollowDetailService followDetailService;
     
+    @Autowired
+    private BillService billService;
+    
     @GetMapping("/store_bill")
     public String listbill(Model model,@RequestParam Map<String, String> params, HttpSession session) {
         Boolean check = false;
         model.addAttribute("bill", this.storeBillService.getBill(params));
         model.addAttribute("currentUser", session.getAttribute("currentUser"));
-        model.addAttribute("check", check);
         
         return "store_bill";
     }
@@ -109,6 +115,57 @@ public class FoodManageController {
         
         return "food";
     }
+    
+    @GetMapping("/fooddetail")
+    public String foodDetail(Model model, @RequestParam Map<String, String> params, HttpSession session) {
+        String id = params.toString();
+        id = id.replaceAll("[={}]", "");
+        Integer intId = Integer.parseInt(id);
+        model.addAttribute("foodDetail", this.foodService.getFoodById(intId));
+        model.addAttribute("updateFood", new Food());
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
+        model.addAttribute("foodID", intId);
+        return "fooddetail";
+    }
+    
+    @PostMapping("/fooddetail/{foodID}")
+    public String updateFood(Model model, @RequestParam Map<String, String> params, @ModelAttribute(value = "updateFood") @Valid Food food, @PathVariable(value = "foodID") int foodID, BindingResult r) {
+        if (r.hasErrors()){
+            return "fooddetail";
+        } 
+        if (this.foodService.updateUser(food, foodID) == true){
+            return "redirect:/store/food";
+            }
+        
+        
+        return "fooddetail";
+    }
+    
+    @GetMapping("/billstoredetail")
+    public String billdetail(Model model, @RequestParam Map<String, String> params, HttpSession session) {
+        String id = params.toString();
+        id = id.replaceAll("[={}]", "");
+        Integer intId = Integer.parseInt(id);
+        model.addAttribute("billDetail", this.billService.getOrderById(intId));
+        model.addAttribute("updateBill", new Orderdetail());
+        model.addAttribute("currentUser", session.getAttribute("currentUser"));
+        model.addAttribute("billID", intId);
+        return "billstoredetail";
+    }
+    
+    @PostMapping("/billstoredetail/{billID}")
+    public String updateBill(Model model, @RequestParam Map<String, String> params, @ModelAttribute(value = "updateBill") @Valid Orderdetail o, @PathVariable(value = "billID") int billID, BindingResult r) {
+        if (r.hasErrors()){
+            return "billstoredetail";
+        } 
+        if (this.billService.billDetail(o, billID) == true){
+            return "redirect:/store/store_bill";
+            }
+        
+        
+        return "billstoredetail";
+    }
+    
     @GetMapping("/stats")
     public String stats(Model model,@RequestParam(required = false) Map<String, String> params ) throws ParseException{
         SimpleDateFormat f = new SimpleDateFormat("yyyy-MM-dd");

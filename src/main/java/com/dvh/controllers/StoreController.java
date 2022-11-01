@@ -5,6 +5,7 @@
 package com.dvh.controllers;
 
 import com.dvh.pojo.Followdetail;
+import com.dvh.pojo.Food;
 import com.dvh.service.FollowDetailService;
 import com.dvh.service.FoodService;
 import com.dvh.service.StoreService;
@@ -35,6 +36,9 @@ public class StoreController {
     @Autowired
     private FollowDetailService followDetailService;
     
+    @Autowired
+    private FoodService foodService;
+    
     @GetMapping("/store-detail/{storeId}")
     public String detail(Model model, @PathVariable(value = "storeId") int storeId, HttpSession session) {
         model.addAttribute("store", this.storeService.getStoreById(storeId));
@@ -55,4 +59,5 @@ public class StoreController {
         
         return "store-detail";
     }
+    
 }

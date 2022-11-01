@@ -129,7 +129,7 @@ public class UserRepositoryImpl implements UserRepository {
             u.setLastName(user.getLastName());
             u.setPhone(user.getPhone());
             u.setEmail(user.getEmail());
-            u.setAddress(user.getAddress());
+//            u.setAddress(user.getAddress());
 //            u.setActive(user.getActive());
             session.save(u);
             

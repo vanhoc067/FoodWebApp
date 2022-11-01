@@ -92,4 +92,9 @@ public class FoodServiceImpl implements FoodService {
     public List<Food> getFoodstore() {
         return this.foodRepository.getFoodstore();
     }
+
+    @Override
+    public boolean updateUser(Food food, int id) {
+        return this.foodRepository.updateUser(food, id);
+    }
 }

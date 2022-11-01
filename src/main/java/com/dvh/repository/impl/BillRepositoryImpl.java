@@ -96,5 +96,28 @@ public class BillRepositoryImpl implements BillRepository {
             return  false;
         }
     }
+
+    @Override
+    public boolean billDetail(Orderdetail o, int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        try {
+            Orderdetail orderDetail = session.get(Orderdetail.class, id);
+            orderDetail.setUnitPrice(o.getUnitPrice());
+            session.save(orderDetail);
+            
+            return true;
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+            return  false;
+        }
+    }
+
+    @Override
+    public Orderdetail getOrderById(int id) {
+        Session session = this.sessionFactory.getObject().getCurrentSession();
+        return session.get(Orderdetail.class, id);
+    }
+
     
 }

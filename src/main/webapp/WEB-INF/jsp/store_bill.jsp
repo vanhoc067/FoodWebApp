@@ -57,7 +57,7 @@
                                                             <td>
                                                                 <div class="spinner-border text-primary" style="display:none" id="load${b.id}"></div>
                                                                 <button id ="btn${b.id}" class="btn btn-danger" onclick="deleteBillByStore('${enpoint} + ${b.id}', ${b.id})" >Xoa</button>
-                                                                <button class="btn btn-primary" >sửa</button>
+                                                                <a href="<c:url value="/store/billstoredetail?${b.id}" />" ><button class="btn btn-primary" type="button">sửa</button></a>
                                                             </td>  
                                                         </tr>
                                                     </c:if>
