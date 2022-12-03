@@ -47,7 +47,7 @@
                                                                 <c:if test="${b.status == 1}">
                                                                     <i style="color: green; font-size: 30px;" class="fa-solid fa-circle-check"></i>
                                                                 </c:if>
-                                                                <c:if test="${b.status == 0}">
+                                                                <c:if test="${b.status != 1}">
                                                                     <div class="d-grid" style="display: flex">
                                                                         <a style="text-align: center" href="#" /><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán tiền mặt</button></a>
                                                                         <a style="text-align: center" href="<c:url value="/bill_detail/${b.id}" />"><button style="width:150px; margin: 3px" class="btn btn-danger btn-block">Thanh toán online</button></a>

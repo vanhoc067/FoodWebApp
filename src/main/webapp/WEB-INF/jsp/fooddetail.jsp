@@ -26,32 +26,22 @@
                         <form:input type="text" id="name" path="name" class="form-control editInputForm" value="${foodDetail.name}"/>
                     </div>
                     <div class="form-group">
-                        <label for="lastname" >Last name</label>
+                        <label for="lastname" >Quantity</label>
                         <form:input type="number" id="quantity" path="quantity" class="form-control editInputForm" value="${foodDetail.quantity}"/>
                     </div>
                     <div class="form-group">
-                        <label for="email" >Email</label>
+                        <label for="email" >Status</label>
                         <form:input type="text" id="status" path="status" class="form-control editInputForm" value="${foodDetail.status}"/>
                     </div>
                     <div class="form-group">
-                        <label for="phone" >Phone</label>
+                        <label for="phone" >Price</label>
                         <form:input type="number" id="price" path="price" class="form-control editInputForm" value="${foodDetail.price}"/>
                     </div>
-                    <div class="switch-holder">
-                        <div class="switch-label">
-                            <span><b>Active</b></span>
-                        </div>
-                        <div class="switch-toggle">
-                            <input type="checkbox" ${check} id="bluetooth">
-                            <label for="bluetooth"></label>
-                        </div>
-                    </div>
-                    <div>
+                    <div style="margin-top: 10px">
                         <input type="submit" value="Update" class="btn btn-danger" />
                     </div>
                     <br><br>
                 </div>
             </div>
-
         </form:form>
     </div>

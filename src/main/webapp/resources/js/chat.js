@@ -5,13 +5,14 @@
  
 
 var firebaseConfig = {
-    apiKey: "AIzaSyDSexUjjQVUAd_ZOOx7XTeKjrwHAkTm-Hg",
-    authDomain: "realtime-507f2.firebaseapp.com",
-    databaseURL: "https://realtime-507f2-default-rtdb.firebaseio.com",
-    projectId: "realtime-507f2",
-    storageBucket: "realtime-507f2.appspot.com",
-    messagingSenderId: "169352533661",
-    appId: "1:169352533661:web:f2095dc2f210391aa5a674"
+    apiKey: "AIzaSyC0RHnVyhjsFhprT4FynRjK-l7EAaR_0uc",
+  authDomain: "test-chat-realtime-eb630.firebaseapp.com",
+  databaseURL: "https://test-chat-realtime-eb630-default-rtdb.firebaseio.com",
+  projectId: "test-chat-realtime-eb630",
+  storageBucket: "test-chat-realtime-eb630.appspot.com",
+  messagingSenderId: "846297378295",
+  appId: "1:846297378295:web:5ba30fc183e459834352f2",
+  measurementId: "G-NBH2EXMJCE"
   };
 
 
